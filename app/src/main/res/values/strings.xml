@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">SaneTools</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="edtInserirCPF">Digite o CPF (sem pontos e/ou traços)</string>
+    <string name="edtInserirNome">Digite o Nome</string>
+    <string name="edtInserirSenha1">Repita a senha</string>
+    <string name="edtInserirEmail">Digite o email</string>
+    <string name="btnEntrar">ENTRAR</string>
+    <string name="btnLimpar">LIMPAR</string>
+    <string name="acaoSobre">Sobre o App</string>
+    <string name="acaoAjuda">Ajuda</string>
+    <string name="acaoSair">Sair</string>
+    <string name="edtSugestao">Escreva aqui sua sugestão:</string>
+    <string name="SplashScreen">- Bem Vindo - <br /> SaneTools</string>
+    <string name="hintCPF">CPF</string>
+    <string name="hintSenha">SENHA</string>
+    <string name="edtInserirSenha">Digite uma senha</string>
+    <string name="title_activity_home_cliente">HomeCliente</string>
+
+    <string name="action_settings">Settings</string>
+
+</resources>

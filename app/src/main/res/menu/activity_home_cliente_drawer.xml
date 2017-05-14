@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menuSolicitaServico"
+            android:icon="@drawable/solicitaservico"
+            android:title="Solicitar Serviço" />
+
+        <item
+            android:id="@+id/menuConsultarServico"
+            android:icon="@drawable/servico"
+            android:title="Consultar Serviço" />
+
+        <item
+            android:id="@+id/menuConsultaFatura"
+            android:icon="@drawable/fatura"
+            android:title="Consultar Faturas" />
+
+        <item
+            android:id="@+id/menuConsultarImovel"
+            android:icon="@drawable/imovel"
+            android:title="Consultar Imoveis" />
+    </group>
+
+    <item android:title="Ferramentas">
+        <menu>
+            <item
+                android:id="@+id/menuCompartilhar"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Compartilhar" />
+            <item
+                android:id="@+id/menuSugestoes"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Sugestões" />
+
+            <item
+                android:id="@+id/menuSair"
+                android:icon="@drawable/sair"
+                android:title="Sair" />
+        </menu>
+    </item>
+
+</menu>

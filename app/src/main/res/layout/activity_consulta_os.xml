@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:text="Ordens de Serviço:"
+        android:id="@+id/txtOrdemServico" />
+
+    <ListView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_weight="0.87"
+        android:id="@+id/lstvOS"
+        android:layout_marginTop="10dp">
+    </ListView>
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="Voltar"
+        android:id="@+id/btnVoltarAcompOS"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
