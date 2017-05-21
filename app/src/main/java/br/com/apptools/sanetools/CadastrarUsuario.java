@@ -15,12 +15,15 @@ import android.widget.Toast;
 
 
 import br.com.apptools.sanetools.database.Conexao;
+import br.com.apptools.sanetools.database.DataBaseHelper;
+import br.com.apptools.sanetools.dominio.RepositorioPessoa;
+import br.com.apptools.sanetools.dominio.entidades.Pessoa;
 
 public class CadastrarUsuario extends AppCompatActivity {
 
     //Teste de activity_login
-    String url = "";
-    String parametros = "";
+    //String url = "";
+    //String parametros = "";
 
     //Declaração de variaveis para recuperação de dados
     EditText mEdtInserirCPF;
@@ -31,8 +34,8 @@ public class CadastrarUsuario extends AppCompatActivity {
     Button mBtnSalvarCad;
     Button mBtnCancelarCad;
 
-    //RepositorioPessoa repositorioPessoa;
-    //Pessoa pessoa;
+    RepositorioPessoa repositorioPessoa;
+    Pessoa pessoa;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,11 +50,12 @@ public class CadastrarUsuario extends AppCompatActivity {
         mBtnSalvarCad = (Button) findViewById(R.id.btnSalvarCad);
         mBtnCancelarCad = (Button) findViewById(R.id.btnCancelarCad);
 
-        mBtnSalvarCad.setOnClickListener(new View.OnClickListener() { //Função do botão de gravar o activity_cadastro do usuário
+        mBtnSalvarCad.setOnClickListener(new View.OnClickListener() {
+            //Função do botão de gravar o activity_cadastro do usuário
             @Override
             public void onClick(View v) {
 
-                ConnectivityManager connMgr = (ConnectivityManager)
+                /*ConnectivityManager connMgr = (ConnectivityManager)
                         getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
@@ -68,7 +72,7 @@ public class CadastrarUsuario extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Nenhum campo pode estar vazio", Toast.LENGTH_LONG).show();
 
                     } else {
-                        url = "http://192.168.1.99/apptools/sanetools/registrar.php";
+                        //url = "http://192.168.1.99/apptools/sanetools/registrar.php";
                         //url = "http://172.24.152.185/apptools/sanetools/registrar.php";
                         //url = "http://192.168.43.217/apptools/sanetools/registrar.php";
 
@@ -79,11 +83,11 @@ public class CadastrarUsuario extends AppCompatActivity {
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Nenhuma conexão foi detectada", Toast.LENGTH_LONG).show();
-                }
+                }*/
 
 
                 //Teste de activity_login
-                /*
+
                 pessoa = new Pessoa();
                 repositorioPessoa = new RepositorioPessoa(getApplicationContext());
                 pessoa.setNome(mEdtInserirNome.getText().toString());
@@ -101,29 +105,30 @@ public class CadastrarUsuario extends AppCompatActivity {
                         } else {
                             Toast toast = Toast.makeText(getApplicationContext(), "Usuário adicionado com sucesso!", Toast.LENGTH_LONG);
                             toast.show();
+                            Intent intent = new Intent(CadastrarUsuario.this, Login.class);
                             startActivity(intent);
                             finish();
                         }
                     } else {
                         Toast toast = Toast.makeText(getApplicationContext(), "CPF já está cadastrado", Toast.LENGTH_LONG);
                         toast.show();
-                    }*/
+                    }
             }
         });
 
         //Função do botão de cancelar o activity_cadastro do usuário
-        /*mBtnCancelarCad.setOnClickListener(new View.OnClickListener() {
+        mBtnCancelarCad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CadastrarUsuario.this, Login.class);
                 startActivity(intent);
                 finish();
             }
-        });*/
+        });
 
     }
 
-    private class SolicitaDados extends AsyncTask<String, Void, String> {
+    /*private class SolicitaDados extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... urls) {
 
@@ -146,7 +151,7 @@ public class CadastrarUsuario extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Ocorreu um erro ao registrar", Toast.LENGTH_LONG).show();
             }
         }
-    }
+    }*/
 
     @Override
     protected void onPause() {

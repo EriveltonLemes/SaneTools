@@ -16,7 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import br.com.apptools.sanetools.database.Conexao;
+//import br.com.apptools.sanetools.database.Conexao;
 import br.com.apptools.sanetools.database.DataBaseHelper;
 import br.com.apptools.sanetools.dominio.RepositorioPessoa;
 
@@ -33,8 +33,8 @@ public class Login extends AppCompatActivity {
     RepositorioPessoa repositorioPessoa;
 
     //Váriaveis para teste de banco externo
-    String url = "";
-    String parametros = "";
+    //String url = "";
+    //String parametros = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,7 @@ public class Login extends AppCompatActivity {
         repositorioPessoa = new RepositorioPessoa(this);
 
         //Função de activity_login em base de dados externa (teste)
-        mBtnLogar.setOnClickListener(new View.OnClickListener() {
+        /*mBtnLogar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -72,7 +72,7 @@ public class Login extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Nenhum campo pode estar vazio", Toast.LENGTH_LONG).show();
                     } else {
 
-                        url = "http://192.168.1.99/apptools/sanetools/logar.php";
+                        //url = "http://192.168.1.99/apptools/sanetools/logar.php";
                         //url = "http://172.24.152.185/apptools/sanetools/logar.php";
                         //url = "http://192.168.43.217/apptools/sanetools/logar.php";
 
@@ -85,7 +85,7 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Nenhuma conexão foi detectada", Toast.LENGTH_LONG).show();
                 }
             }
-        });
+        });*/
 
         //Função do botão que limpa (apaga os caracteres) os campos de CPF e SENHA da tela de content_login
         mBtnLimpar.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +93,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 mEdtCPF.getText().clear();
                 mEdtSenha.getText().clear();
+
             }
         });
 
@@ -102,12 +103,11 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Login.this, CadastrarUsuario.class);
                 startActivity(intent);
-                finish();
             }
         });
     }
 
-    private class SolicitaDados extends AsyncTask<String, Void, String> {
+    /*private class SolicitaDados extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... urls) {
 
@@ -127,10 +127,10 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Usuário e/ou senha estão incorretos", Toast.LENGTH_LONG).show();
             }
         }
-    }
+    }*/
 
     //Função de activity_login. Testa se o usuário existe e se os dados de activity_login estão corretos.
-    /*public void logar (View view) {
+    public void logar (View view) {
         String cpf = mEdtCPF.getText().toString();
         String senha = mEdtSenha.getText().toString();
 
@@ -154,7 +154,7 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Usuário e/ou senha incorretos", Toast.LENGTH_LONG).show();
             }
         }
-    }*/
+    }
 
     @Override
     protected void onPause() {

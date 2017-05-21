@@ -32,7 +32,8 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/servico"/>
+                    android:background="@drawable/servico"
+                    android:id="@+id/imgbtnConsultaServicoEuipe"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -50,7 +51,8 @@
                 <ImageButton
                     android:layout_width="114dp"
                     android:layout_height="139dp"
-                    android:background="@drawable/servico"/>
+                    android:background="@drawable/servico"
+                    android:id="@+id/imgbtnBaixarServicoEquipe"/>
 
                 <TextView
                     android:layout_width="wrap_content"
