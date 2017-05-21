@@ -7,7 +7,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/icone1"
+        android:icon="@drawable/iconeapp"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -35,11 +35,11 @@
             android:name=".SolicitaServico"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ConsultarOrdemServico" />
+        <activity android:name=".ConsultaOsCliente" />
         <activity android:name=".ConsultarFatura" />
         <activity android:name=".ConsultarImovel" />
         <activity android:name=".CadastrarUsuario" />
-        <activity android:name=".BaixarOS"></activity>
+        <activity android:name=".BaixarOS" />
         <activity
             android:name=".HomeCliente"
             android:label="@string/title_activity_home_cliente"
@@ -47,7 +47,8 @@
         <activity
             android:name=".HomeEquipe"
             android:label="@string/title_activity_home_equipe"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ConsultaOsEquipe"></activity>
     </application>
 
 </manifest>

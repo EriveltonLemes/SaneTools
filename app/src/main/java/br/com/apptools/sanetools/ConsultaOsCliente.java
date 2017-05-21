@@ -15,7 +15,7 @@ import br.com.apptools.sanetools.dominio.RepositorioOrdemServico;
 import br.com.apptools.sanetools.database.DataBaseHelper;
 import br.com.apptools.sanetools.dominio.entidades.OrdemServico;
 
-public class ConsultarOrdemServico extends AppCompatActivity {
+public class ConsultaOsCliente extends AppCompatActivity {
 
     //Declaração de variaveis para retorno de dados
     Button mBtnVoltarAcompOS;
@@ -38,7 +38,7 @@ public class ConsultarOrdemServico extends AppCompatActivity {
         mBtnVoltarAcompOS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ConsultarOrdemServico.this,HomeCliente.class);
+                Intent intent = new Intent(ConsultaOsCliente.this,HomeCliente.class);
                 startActivity(intent);
                 finish();
             }

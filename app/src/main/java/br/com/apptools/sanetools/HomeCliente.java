@@ -53,7 +53,7 @@ public class HomeCliente extends AppCompatActivity
         mImgBtnConsultaServico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent consultaServico = new Intent(HomeCliente.this, ConsultarOrdemServico.class);
+                Intent consultaServico = new Intent(HomeCliente.this, ConsultaOsCliente.class);
                 startActivity(consultaServico);
             }
         });
@@ -140,7 +140,7 @@ public class HomeCliente extends AppCompatActivity
 
             //Abre a tela de consulta de serviços já solicitados
         } else if (id == R.id.menuConsultarServico) {
-            Intent intent = new Intent(HomeCliente.this, ConsultarOrdemServico.class);
+            Intent intent = new Intent(HomeCliente.this, ConsultaOsCliente.class);
             startActivity(intent);
             finish();
 

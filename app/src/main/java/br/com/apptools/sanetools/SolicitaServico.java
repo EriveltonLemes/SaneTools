@@ -252,7 +252,7 @@ public class SolicitaServico extends AppCompatActivity
 
            //Abre a tela de consulta de serviços já solicitados
         } else if (id == R.id.menuConsultarServico) {
-            Intent intent = new Intent(SolicitaServico.this, ConsultarOrdemServico.class);
+            Intent intent = new Intent(SolicitaServico.this, ConsultaOsCliente.class);
             startActivity(intent);
             finish();
 
