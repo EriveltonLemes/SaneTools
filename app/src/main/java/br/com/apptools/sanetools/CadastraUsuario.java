@@ -1,6 +1,5 @@
 package br.com.apptools.sanetools;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -20,7 +19,7 @@ import br.com.apptools.sanetools.database.Conexao;
 //import br.com.apptools.sanetools.dominio.RepositorioPessoa;
 //import br.com.apptools.sanetools.dominio.entidades.Pessoa;
 
-public class CadastrarUsuario extends AppCompatActivity {
+public class CadastraUsuario extends AppCompatActivity {
 
     //Teste de activity_login
     String url = "";
@@ -109,7 +108,7 @@ public class CadastrarUsuario extends AppCompatActivity {
                         } else {
                             Toast toast = Toast.makeText(getApplicationContext(), "Usuário adicionado com sucesso!", Toast.LENGTH_LONG);
                             toast.show();
-                            Intent intent = new Intent(CadastrarUsuario.this, Login.class);
+                            Intent intent = new Intent(CadastraUsuario.this, Login.class);
                             startActivity(intent);
                             finish();
                         }
@@ -124,7 +123,7 @@ public class CadastrarUsuario extends AppCompatActivity {
         mBtnCancelarCad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CadastrarUsuario.this, Login.class);
+                Intent intent = new Intent(CadastraUsuario.this, Login.class);
                 startActivity(intent);
                 finish();
             }
@@ -148,7 +147,7 @@ public class CadastrarUsuario extends AppCompatActivity {
 
             }else if(resultado.contains("registroOK")) {
             Toast.makeText(getApplicationContext(), "Usuário Cadstrado com sucesso", Toast.LENGTH_LONG).show();
-                Intent voltaCadastro = new Intent(CadastrarUsuario.this, Login.class);
+                Intent voltaCadastro = new Intent(CadastraUsuario.this, Login.class);
                 startActivity(voltaCadastro);
 
             } else {

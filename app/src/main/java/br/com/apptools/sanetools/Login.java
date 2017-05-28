@@ -1,4 +1,4 @@
-package br.com.apptools.sanetools;
+﻿package br.com.apptools.sanetools;
 
 import android.content.Context;
 import android.content.Intent;
@@ -51,6 +51,20 @@ public class Login extends AppCompatActivity {
         mBtnLimpar = (Button) findViewById(R.id.btnLimparLogin);
         mTxtCadastro = (TextView) findViewById(R.id.txtCadastro);
 
+
+	try {
+            Intent cpfLogado = getIntent();
+            String meuTexto = cpfLogado.getStringExtra("CPF do cliente");
+
+            TextView txtCpfLog = (TextView) findViewById(R.id.txtCpfLog);
+            txtCpfLog.setText(meuTexto);
+
+        } catch (Exception ex) {
+
+            Toast.makeText(getApplicationContext(),ex.getMessage().toString(),Toast.LENGTH_LONG).show();
+        }
+
+
         //repositorioPessoa = new RepositorioPessoa(this);
 
         //Função de activity_login em base de dados externa (teste)
@@ -101,7 +115,7 @@ public class Login extends AppCompatActivity {
         mTxtCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login.this, CadastrarUsuario.class);
+                Intent intent = new Intent(Login.this, CadastraUsuario.class);
                 startActivity(intent);
             }
         });

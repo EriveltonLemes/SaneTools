@@ -15,7 +15,7 @@ import br.com.apptools.sanetools.database.DataBaseHelper;
 import br.com.apptools.sanetools.dominio.RepositorioFatura;
 import br.com.apptools.sanetools.dominio.entidades.Fatura;
 
-public class ConsultarFatura extends AppCompatActivity {
+public class ConsultaFatura extends AppCompatActivity {
 
     //Declaração de variaveis para recuperação de dados
     Button mBtnVoltarFaturas;
@@ -38,7 +38,7 @@ public class ConsultarFatura extends AppCompatActivity {
         mBtnVoltarFaturas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ConsultarFatura.this,HomeCliente.class);
+                Intent intent = new Intent(ConsultaFatura.this,HomeCliente.class);
                 startActivity(intent);
                 finish();
             }

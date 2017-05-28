@@ -258,13 +258,13 @@ public class SolicitaServico extends AppCompatActivity
 
            //Abre a tela de consulta de activity_faturas
         } else if (id == R.id.menuConsultaFatura) {
-            Intent intent = new Intent(SolicitaServico.this, ConsultarFatura.class);
+            Intent intent = new Intent(SolicitaServico.this, ConsultaFatura.class);
             startActivity(intent);
             finish();
 
            //Abre a tela de consulta de imovel que já foram solicitados ordens de serviço
         } else if (id == R.id.menuConsultarImovel) {
-            Intent intent = new Intent(SolicitaServico.this, ConsultarImovel.class);
+            Intent intent = new Intent(SolicitaServico.this, ConsultaImovel.class);
             startActivity(intent);
             finish();
 

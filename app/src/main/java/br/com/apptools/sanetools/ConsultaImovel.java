@@ -15,7 +15,7 @@ import br.com.apptools.sanetools.dominio.RepositorioImovel;
 import br.com.apptools.sanetools.database.DataBaseHelper;
 import br.com.apptools.sanetools.dominio.entidades.Imovel;
 
-public class ConsultarImovel extends AppCompatActivity {
+public class ConsultaImovel extends AppCompatActivity {
 
     //Declaração de variáveis para retorno de dados
     Button mBtnVoltarImoveis;
@@ -38,7 +38,7 @@ public class ConsultarImovel extends AppCompatActivity {
         mBtnVoltarImoveis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ConsultarImovel.this,HomeCliente.class);
+                Intent intent = new Intent(ConsultaImovel.this,HomeCliente.class);
                 startActivity(intent);
                 finish();
             }

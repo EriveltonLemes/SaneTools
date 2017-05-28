@@ -1,6 +1,10 @@
 package br.com.apptools.sanetools;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,9 +16,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
+import br.com.apptools.sanetools.database.Conexao;
 
 public class HomeCliente extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    String url = "";
+    String parametros = "";
 
     ImageButton mImgBtnSolicitaServico;
     ImageButton mImgBtnConsultaServico;
@@ -61,7 +71,7 @@ public class HomeCliente extends AppCompatActivity
         mImgBtnConsultaFatura.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent consultaFatura = new Intent(HomeCliente.this, ConsultarFatura.class);
+                Intent consultaFatura = new Intent(HomeCliente.this, ConsultaFatura.class);
                 startActivity(consultaFatura);
             }
         });
@@ -69,10 +79,64 @@ public class HomeCliente extends AppCompatActivity
         mImgBtnConsultaImovel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent consultaImovel = new Intent(HomeCliente.this, ConsultarImovel.class);
-                startActivity(consultaImovel);
+                Intent consultaImovel = new Intent(HomeCliente.this, ConsultaImovel.class);
+
+                ConnectivityManager connMgr = (ConnectivityManager)
+                        getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+
+                if(networkInfo != null && networkInfo.isConnected()) {
+
+                        String logradouro, numero, bairro, cep, cidade;
+
+                        //Trabalhar neste toast
+                        Toast.makeText(getApplicationContext(), "Nenhum campo pode estar vazio", Toast.LENGTH_LONG).show();
+
+                    } else {
+                        url = "http://192.168.1.99/apptools/sanetools/teste.php";
+                        //url = "http://172.24.152.185/apptools/sanetools/registrar.php";
+                        //url = "http://192.168.43.217/apptools/sanetools/registrar.php";
+
+                        parametros = "logradouro=" + logradouro + "&numero=" + numero;
+
+                        new SolicitaDados().execute(url);
+                    }
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "Nenhuma conexão foi detectada", Toast.LENGTH_LONG).show();
+
             }
         });
+    }
+
+    private class SolicitaDados extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... urls) {
+
+            return Conexao.postDados(urls[0], parametros);
+        }
+
+        // onPostExecute displays the results of the AsyncTask.
+        @Override
+        protected void onPostExecute(String resultado) {
+
+            if(resultado.contains("imovel_erro")) {
+                Toast.makeText(getApplicationContext(), "Nenhum imóvel cadastrado", Toast.LENGTH_LONG).show();
+
+            }else if(resultado.contains("imovel_ok")) {
+                Intent listaImovel = new Intent(HomeCliente.this, ConsultaImovel.class);
+                startActivity(listaImovel);
+
+            } else {
+                Toast.makeText(getApplicationContext(), "Ocorreu um erro ao consultar", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
     }
 
     @Override
@@ -102,7 +166,7 @@ public class HomeCliente extends AppCompatActivity
             android.app.AlertDialog.Builder dlg = new android.app.AlertDialog.Builder(this);
             dlg.setMessage("        Desenvolvido por: \n" +
                     "       AppTools Tecnologia \n\n" +
-                    "       Versão do aplicativo: 1.0.0 \n\n" +
+                    "       Versão do aplicativo: 1.1.0 \n\n" +
                     "       Contato: \n" +
                     "       apptoolstecnologia@gmail.com \n" +
                     "       (35)99999-9999");
@@ -146,13 +210,13 @@ public class HomeCliente extends AppCompatActivity
 
             //Abre a tela de consulta de activity_faturas
         } else if (id == R.id.menuConsultaFatura) {
-            Intent intent = new Intent(HomeCliente.this, ConsultarFatura.class);
+            Intent intent = new Intent(HomeCliente.this, ConsultaFatura.class);
             startActivity(intent);
             finish();
 
             //Abre a tela de consulta de imovel que já foram solicitados ordens de serviço
         } else if (id == R.id.menuConsultarImovel) {
-            Intent intent = new Intent(HomeCliente.this, ConsultarImovel.class);
+            Intent intent = new Intent(HomeCliente.this, ConsultaImovel.class);
             startActivity(intent);
             finish();
 
