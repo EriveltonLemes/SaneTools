@@ -12,8 +12,8 @@
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="br.com.apptools.sanetools.SolicitaServico"
-    tools:showIn="@layout/app_bar_solicita_servico"
-    android:weightSum="1">
+    tools:showIn="@layout/app_bar_solicita_servico">
+
 
     <TextView
         android:layout_width="wrap_content"

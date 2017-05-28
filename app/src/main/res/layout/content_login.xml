@@ -45,7 +45,6 @@
         android:id="@+id/btnEntrar"
         android:text="@string/btnEntrar"
         android:layout_weight="1"
-        android:onClick="logar"
         android:layout_gravity="center"/>
 
     <Button

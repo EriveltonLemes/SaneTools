@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context="br.com.apptools.sanetools.BaixarOS">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,11 +23,13 @@
 
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="422dp"
             android:id="@+id/lstvOS">
 
         </ListView>
 
     </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

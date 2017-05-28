@@ -14,9 +14,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-//import br.com.apptools.sanetools.database.Conexao;
-//import br.com.apptools.sanetools.database.DataBaseHelper;
 import br.com.apptools.sanetools.database.Conexao;
+//import br.com.apptools.sanetools.database.DataBaseHelper;
 //import br.com.apptools.sanetools.dominio.RepositorioPessoa;
 //import br.com.apptools.sanetools.dominio.entidades.Pessoa;
 
@@ -32,6 +31,7 @@ public class CadastrarUsuario extends AppCompatActivity {
     EditText mEdtInserirSenha;
     EditText mEdtInserirSenha1;
     EditText mEdtInserirEmail;
+    EditText mEdtInserirTelefone;
     Button mBtnSalvarCad;
     Button mBtnCancelarCad;
 
@@ -48,6 +48,7 @@ public class CadastrarUsuario extends AppCompatActivity {
         mEdtInserirSenha = (EditText) findViewById(R.id.edtInserirSenha);
         mEdtInserirSenha1 = (EditText) findViewById(R.id.edtInserirSenha1);
         mEdtInserirEmail = (EditText) findViewById(R.id.edtInserirEmail);
+        mEdtInserirTelefone = (EditText) findViewById(R.id.edtInserirTelefone);
         mBtnSalvarCad = (Button) findViewById(R.id.btnSalvarCad);
         mBtnCancelarCad = (Button) findViewById(R.id.btnCancelarCad);
 
@@ -67,8 +68,9 @@ public class CadastrarUsuario extends AppCompatActivity {
                     String email = mEdtInserirEmail.getText().toString();
                     String senha = mEdtInserirSenha.getText().toString();
                     String senha1 = mEdtInserirSenha1.getText().toString();
+                    String telefone = mEdtInserirTelefone.getText().toString();
 
-                    if (cpf.isEmpty() || nome.isEmpty() || email.isEmpty() || senha.isEmpty() || senha1.isEmpty()) {
+                    if (cpf.isEmpty() || nome.isEmpty() || email.isEmpty() || telefone.isEmpty() || senha.isEmpty() || senha1.isEmpty()) {
 
                         Toast.makeText(getApplicationContext(), "Nenhum campo pode estar vazio", Toast.LENGTH_LONG).show();
 
@@ -77,7 +79,7 @@ public class CadastrarUsuario extends AppCompatActivity {
                         //url = "http://172.24.152.185/apptools/sanetools/registrar.php";
                         //url = "http://192.168.43.217/apptools/sanetools/registrar.php";
 
-                        parametros = "cpf_equipe=" + cpf + "&nome=" + nome + "&email=" + email + "&senha=" + senha;
+                        parametros = "cpf_equipe=" + cpf + "&nome=" + nome + "&telefone" + telefone + "&email=" + email + "&senha=" + senha;
 
                         new SolicitaDados().execute(url);
                     }
