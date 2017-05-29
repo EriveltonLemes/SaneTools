@@ -89,6 +89,8 @@ public class HomeCliente extends AppCompatActivity
 
                         String logradouro, numero, bairro, cep, cidade;
 
+                    if(1 > 2) {
+
                         //Trabalhar neste toast
                         Toast.makeText(getApplicationContext(), "Nenhum campo pode estar vazio", Toast.LENGTH_LONG).show();
 
@@ -97,7 +99,7 @@ public class HomeCliente extends AppCompatActivity
                         //url = "http://172.24.152.185/apptools/sanetools/registrar.php";
                         //url = "http://192.168.43.217/apptools/sanetools/registrar.php";
 
-                        parametros = "logradouro=" + logradouro + "&numero=" + numero;
+                        //parametros = "logradouro=" + logradouro + "&numero=" + numero;
 
                         new SolicitaDados().execute(url);
                     }
@@ -105,6 +107,7 @@ public class HomeCliente extends AppCompatActivity
                 } else {
                     Toast.makeText(getApplicationContext(), "Nenhuma conexão foi detectada", Toast.LENGTH_LONG).show();
 
+                }
             }
         });
     }
