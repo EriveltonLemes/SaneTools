@@ -75,8 +75,8 @@ public class CadastraUsuario extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Nenhum campo pode estar vazio", Toast.LENGTH_LONG).show();
 
                     } else {
-                        url = "http://192.168.1.99/apptools/sanetools/registrar.php";
-                        //url = "http://172.24.152.185/apptools/sanetools/registrar.php";
+                        //url = "http://192.168.1.99/apptools/sanetools/registrar.php";
+                        url = "http://172.24.149.230/apptools/sanetools/registrar.php";
                         //url = "http://192.168.43.217/apptools/sanetools/registrar.php";
 
                         parametros = "cpf_equipe=" + cpf + "&nome=" + nome + "&telefone" + telefone + "&email=" + email + "&senha=" + senha;

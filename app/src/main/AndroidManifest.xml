@@ -48,7 +48,8 @@
             android:name=".HomeEquipe"
             android:label="@string/title_activity_home_equipe"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ConsultaOsEquipe"></activity>
+        <activity android:name=".ConsultaOsEquipe" />
+        <activity android:name=".ActivityEndereco"></activity>
     </application>
 
 </manifest>

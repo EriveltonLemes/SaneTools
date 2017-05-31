@@ -66,8 +66,8 @@ public class Login extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Nenhum campo pode estar vazio", Toast.LENGTH_LONG).show();
                     } else {
 
-                        url = "http://192.168.1.99/apptools/sanetools/logar.php";
-                        //url = "http://172.24.152.185/apptools/sanetools/logar.php";
+                        //url = "http://192.168.1.99/apptools/sanetools/logar.php";
+                        url = "http://172.24.149.230/apptools/sanetools/logar.php";
                         //url = "http://192.168.43.217/apptools/sanetools/logar.php";
 
                         parametros = "cpf_equipe="+cpf+"&senha="+senha;
@@ -122,33 +122,6 @@ public class Login extends AppCompatActivity {
             }
         }
     }
-
-    //Função de activity_login. Testa se o usuário existe e se os dados de activity_login estão corretos. Banco Local
-    /*public void logar (View view) {
-        String cpf = mEdtCPF.getText().toString();
-        String senha = mEdtSenha.getText().toString();
-
-        boolean validacao = true;
-
-        if (cpf == null || cpf.equals("")) {
-            validacao = false;
-            Toast.makeText(getApplicationContext(),"Nenhum campo pode estar vazio",Toast.LENGTH_LONG).show();
-        }
-
-        if (senha == null || senha.equals("")) {
-            validacao = false;
-            Toast.makeText(getApplicationContext(),"Nenhum campo pode estar vazio",Toast.LENGTH_LONG).show();
-        }
-
-        if (validacao) {
-            if (repositorioPessoa.logarPessoa(cpf, senha)){
-                startActivity(new Intent(this, HomeCliente.class));
-                finish();
-            } else {
-                Toast.makeText(getApplicationContext(),"Usuário e/ou senha incorretos", Toast.LENGTH_LONG).show();
-            }
-        }
-    }*/
 
     @Override
     protected void onPause() {
