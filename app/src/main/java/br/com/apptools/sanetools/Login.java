@@ -67,8 +67,8 @@ public class Login extends AppCompatActivity {
                     } else {
 
                         //url = "http://192.168.1.99/apptools/sanetools/logar.php";
-                        url = "http://172.24.149.230/apptools/sanetools/logar.php";
-                        //url = "http://192.168.43.217/apptools/sanetools/logar.php";
+                        //url = "http://172.24.149.230/apptools/sanetools/logar.php";
+                        url = "http://192.168.43.217/apptools/sanetools/logar.php";
 
                         parametros = "cpf_equipe="+cpf+"&senha="+senha;
 

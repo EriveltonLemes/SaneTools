@@ -24,7 +24,10 @@ public class ActivityEndereco extends AppCompatActivity implements LoadEnderecoJ
     private static final String KEY_CIDADE = "cidade";
 
 
-    public static final String URL = "http://172.24.149.230/apptools/sanetools/imoveis.php";
+    //public static final String URL = "http://172.24.149.230/apptools/sanetools/imoveis.php"; //unis
+    public static final String URL = "http://192.168.43.217/apptools/sanetools/imoveis.php"; //Xperia
+    //public static final String URL = "http://172.24.149.230/apptools/sanetools/imoveis.php"; //Casa
+
     private static final String TAG = "ActivityEndereco";
 
     private List<HashMap<String, String>> mEnderecoMapList = new ArrayList<>();
@@ -45,7 +48,7 @@ public class ActivityEndereco extends AppCompatActivity implements LoadEnderecoJ
 
     @Override
     public void onLoaded(List<EnderecoApp> enderecoList) {
-        Log.v(TAG, "ListAndroid:"+enderecoList);
+        Log.v(TAG, "EnderecoList:"+enderecoList);
         for (EnderecoApp endereco : enderecoList) {
 
             HashMap<String, String> map = new HashMap<>();
@@ -63,7 +66,7 @@ public class ActivityEndereco extends AppCompatActivity implements LoadEnderecoJ
 
     @Override
     public void onError() {
-        Toast.makeText(this, "Ops, verifique sua conexÃ£o!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Ops, verifique sua conexão!", Toast.LENGTH_SHORT).show();
     }
 
     @Override

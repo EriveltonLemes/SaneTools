@@ -76,8 +76,8 @@ public class CadastraUsuario extends AppCompatActivity {
 
                     } else {
                         //url = "http://192.168.1.99/apptools/sanetools/registrar.php";
-                        url = "http://172.24.149.230/apptools/sanetools/registrar.php";
-                        //url = "http://192.168.43.217/apptools/sanetools/registrar.php";
+                        //url = "http://172.24.149.230/apptools/sanetools/registrar.php";
+                        url = "http://192.168.43.217/apptools/sanetools/registrar.php";
 
                         parametros = "cpf_equipe=" + cpf + "&nome=" + nome + "&telefone" + telefone + "&email=" + email + "&senha=" + senha;
 
@@ -87,35 +87,6 @@ public class CadastraUsuario extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(), "Nenhuma conexão foi detectada", Toast.LENGTH_LONG).show();
                 }
-
-
-                //Teste de activity_login
-
-                /*pessoa = new Pessoa();
-                repositorioPessoa = new RepositorioPessoa(getApplicationContext());
-                pessoa.setNome(mEdtInserirNome.getText().toString());
-                pessoa.setEmail(mEdtInserirEmail.getText().toString());
-                pessoa.setCpf(mEdtInserirCPF.getText().toString());
-                pessoa.setSenha(mEdtInserirSenha1.getText().toString());
-
-
-                    if (!repositorioPessoa.checkIFExistis(mEdtInserirCPF.getText().toString())) {
-                        Long code = repositorioPessoa.salvarPessoa(pessoa);
-
-                        if (code == -1) {
-                            Toast toast = Toast.makeText(getApplicationContext(), "Não foi possível inserir o seu usuário", Toast.LENGTH_LONG);
-                            toast.show();
-                        } else {
-                            Toast toast = Toast.makeText(getApplicationContext(), "Usuário adicionado com sucesso!", Toast.LENGTH_LONG);
-                            toast.show();
-                            Intent intent = new Intent(CadastraUsuario.this, Login.class);
-                            startActivity(intent);
-                            finish();
-                        }
-                    } else {
-                        Toast toast = Toast.makeText(getApplicationContext(), "CPF já está cadastrado", Toast.LENGTH_LONG);
-                        toast.show();
-                    }*/
             }
         });
 
