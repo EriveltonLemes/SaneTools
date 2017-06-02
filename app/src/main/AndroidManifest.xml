@@ -48,7 +48,7 @@
             android:label="@string/title_activity_home_equipe"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ConsultaOsEquipe" />
-        <activity android:name=".ActivityImoveis"></activity>
+        <activity android:name=".ActivityImovel"></activity>
     </application>
 
 </manifest>

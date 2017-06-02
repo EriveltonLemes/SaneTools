@@ -72,7 +72,7 @@ public class HomeCliente extends AppCompatActivity
         mImgBtnConsultaImovel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent consultaImovel = new Intent(HomeCliente.this, ActivityImoveis.class);
+                Intent consultaImovel = new Intent(HomeCliente.this, ActivityImovel.class);
                 startActivity(consultaImovel);
             }
 

@@ -1,9 +1,6 @@
 package br.com.apptools.sanetools;
 
-/**
- * Created by Erivelton on 30/05/2017.
- */
-public class ImoveisApp {
+public class ImovelApp {
 
     private String logradouro;
     private String numero;

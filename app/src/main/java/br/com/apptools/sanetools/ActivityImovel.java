@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class ActivityImoveis extends AppCompatActivity implements LoadImoveisJson.Listener, AdapterView.OnItemClickListener{
+public class ActivityImovel extends AppCompatActivity implements LoadImovelJson.Listener, AdapterView.OnItemClickListener{
 
     private static final String KEY_LOGRADOURO = "logradouro";
     private static final String KEY_NUMERO = "numero";
@@ -29,7 +29,7 @@ public class ActivityImoveis extends AppCompatActivity implements LoadImoveisJso
     //public static final String URL = "http://localhosl/apptools/sanetools/imoveis.php"; //Local
     public static final String URL = "http://192.168.1.99/apptools/sanetools/imoveis.php"; //Casa
 
-    private static final String TAG = "ActivityImoveis";
+    private static final String TAG = "ActivityImovel";
     private List<HashMap<String, String>> mEnderecoMapList = new ArrayList<>();
 
     ListView mLstvEndereco;
@@ -37,18 +37,18 @@ public class ActivityImoveis extends AppCompatActivity implements LoadImoveisJso
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_imoveis);
+        setContentView(R.layout.activity_imovel);
 
         mLstvEndereco = (ListView) findViewById(R.id.lstvEndereco);
         mLstvEndereco.setOnItemClickListener(this);
-        new LoadImoveisJson(this).execute(URL);
+        new LoadImovelJson(this).execute(URL);
 
     }
 
     @Override
-    public void onLoaded(List<ImoveisApp> enderecoList) {
+    public void onLoaded(List<ImovelApp> enderecoList) {
         Log.v(TAG, "EnderecoList:"+enderecoList);
-        for (ImoveisApp endereco : enderecoList) {
+        for (ImovelApp endereco : enderecoList) {
 
             HashMap<String, String> map = new HashMap<>();
 
@@ -78,7 +78,7 @@ public class ActivityImoveis extends AppCompatActivity implements LoadImoveisJso
 
     private void loadListView() {
 
-        ListAdapter adapterEndereco = new SimpleAdapter(ActivityImoveis.this, mEnderecoMapList, R.layout.list_item_imoveis,
+        ListAdapter adapterEndereco = new SimpleAdapter(ActivityImovel.this, mEnderecoMapList, R.layout.list_item_imovel,
 
                 new String[]{KEY_LOGRADOURO, KEY_NUMERO, KEY_BAIRRO, KEY_CEP, KEY_CIDADE},
         new int[] {R.id.txtLogradouro, R.id.txtNumero, R.id.txtBairro, R.id.txtCep, R.id.txtCidade});
