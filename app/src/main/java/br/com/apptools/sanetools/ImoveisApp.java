@@ -3,7 +3,7 @@ package br.com.apptools.sanetools;
 /**
  * Created by Erivelton on 30/05/2017.
  */
-public class EnderecoApp {
+public class ImoveisApp {
 
     private String logradouro;
     private String numero;

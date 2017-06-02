@@ -6,11 +6,11 @@ import java.util.List;
 /**
  * Created by Erivelton on 30/05/2017.
  */
-public class ResponseEndereco {
+public class ResponseImoveis {
 
-    private List<EnderecoApp> endereco = new ArrayList<EnderecoApp>();
+    private List<ImoveisApp> endereco = new ArrayList<ImoveisApp>();
 
-    public List<EnderecoApp> getMenu() {
+    public List<ImoveisApp> getMenu() {
         return endereco;
     }
 

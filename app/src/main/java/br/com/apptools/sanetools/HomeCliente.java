@@ -1,10 +1,6 @@
 package br.com.apptools.sanetools;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,9 +12,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.Toast;
-
-import br.com.apptools.sanetools.database.Conexao;
 
 public class HomeCliente extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -79,7 +72,7 @@ public class HomeCliente extends AppCompatActivity
         mImgBtnConsultaImovel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent consultaImovel = new Intent(HomeCliente.this, ActivityEndereco.class);
+                Intent consultaImovel = new Intent(HomeCliente.this, ActivityImoveis.class);
                 startActivity(consultaImovel);
             }
 

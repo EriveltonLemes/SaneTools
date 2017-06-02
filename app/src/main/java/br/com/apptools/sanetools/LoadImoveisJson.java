@@ -17,18 +17,18 @@ import java.util.List;
  * Created by Erivelton on 30/05/2017.
  */
 
-public class LoadEnderecoJson extends AsyncTask<String, Void, ResponseEndereco> {
+public class LoadImoveisJson extends AsyncTask<String, Void, ResponseImoveis> {
 
     private static final String TAG = "LoadEnderecoJsonMenu";
 
-    public LoadEnderecoJson(Listener listener) {
+    public LoadImoveisJson(Listener listener) {
 
         mListener = listener;
     }
 
     public interface Listener {
 
-        void onLoaded(List<EnderecoApp> androidList);
+        void onLoaded(List<ImoveisApp> androidList);
 
         void onError();
     }
@@ -36,13 +36,13 @@ public class LoadEnderecoJson extends AsyncTask<String, Void, ResponseEndereco> 
     private Listener mListener;
 
     @Override
-    protected ResponseEndereco doInBackground(String... strings) {
+    protected ResponseImoveis doInBackground(String... strings) {
         try {
 
             String stringResponse = loadJSON(strings[0]);
             Gson gson = new Gson();
 
-            return gson.fromJson(stringResponse, ResponseEndereco.class);
+            return gson.fromJson(stringResponse, ResponseImoveis.class);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
@@ -53,7 +53,7 @@ public class LoadEnderecoJson extends AsyncTask<String, Void, ResponseEndereco> 
     }
 
     @Override
-    protected void onPostExecute(ResponseEndereco responseMenu) {
+    protected void onPostExecute(ResponseImoveis responseMenu) {
 
         if (responseMenu != null) {
 

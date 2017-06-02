@@ -37,7 +37,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ConsultaOsCliente" />
         <activity android:name=".ConsultaFatura" />
-        <activity android:name=".ConsultaImovel" />
         <activity android:name=".CadastraUsuario" />
         <activity android:name=".BaixaOS" />
         <activity
@@ -49,7 +48,7 @@
             android:label="@string/title_activity_home_equipe"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ConsultaOsEquipe" />
-        <activity android:name=".ActivityEndereco"></activity>
+        <activity android:name=".ActivityImoveis"></activity>
     </application>
 
 </manifest>
