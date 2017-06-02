@@ -25,9 +25,9 @@ public class ActivityEndereco extends AppCompatActivity implements LoadEnderecoJ
 
     //public static final String URL = "http://172.24.149.230/apptools/sanetools/imoveis.php"; //unis
     //public static final String URL = "http://192.168.43.217/apptools/sanetools/imoveis.php"; //Xperia
-    public static final String URL = "http://192.168.1.30/apptools/sanetools/imoveis.php"; //Modem 4G
-    //public static final String URL = "http://localhost/apptools/sanetools/imoveis.php"; //Local
-    //public static final String URL = "http://172.24.149.230/apptools/sanetools/imoveis.php"; //Casa
+    //public static final String URL = "http://192.168.1.30/apptools/sanetools/imoveis.php"; //Modem 4G
+    //public static final String URL = "http://localhosl/apptools/sanetools/imoveis.php"; //Local
+    public static final String URL = "http://192.168.1.99/apptools/sanetools/imoveis.php"; //Casa
 
     private static final String TAG = "ActivityEndereco";
     private List<HashMap<String, String>> mEnderecoMapList = new ArrayList<>();

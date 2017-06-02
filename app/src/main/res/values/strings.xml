@@ -20,7 +20,13 @@
     <string name="edtInserirSenha">Digite uma senha</string>
     <string name="title_activity_home_cliente">HomeCliente</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Configurações</string>
     <string name="title_activity_home_equipe">HomeEquipe</string>
+    <string name="logradouro">Logradouro: </string>
+    <string name="numero">N°.: </string>
+    <string name="cep">CEP: </string>
+    <string name="bairro">Bairro: </string>
+    <string name="cidade">Cidade: </string>
+    <string name="bemVindo">Bem Vindo,</string>
 
 </resources>

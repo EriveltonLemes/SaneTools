@@ -66,10 +66,10 @@ public class Login extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Nenhum campo pode estar vazio", Toast.LENGTH_LONG).show();
                     } else {
 
-                        //url = "http://192.168.1.99/apptools/sanetools/logar.php";
+                        url = "http://192.168.1.99/apptools/sanetools/logar.php";
                         //url = "http://172.24.149.230/apptools/sanetools/logar.php";
                         //url = "http://192.168.43.217/apptools/sanetools/logar.php"; //Xperia
-                        url = "http://192.168.1.30/apptools/sanetools/logar.php"; //Modem 4G
+                        //url = "http://192.168.1.30/apptools/sanetools/logar.php"; //Modem 4G
                         //url= "http://localhost/apptools/sanetools/logar.php"; //Local
 
                         parametros = "cpf_equipe="+cpf+"&senha="+senha;
