@@ -79,68 +79,14 @@ public class HomeCliente extends AppCompatActivity
         mImgBtnConsultaImovel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent consultaImovel = new Intent(HomeCliente.this, ConsultaImovel.class);
-
-                ConnectivityManager connMgr = (ConnectivityManager)
-                        getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-
-                if(networkInfo != null && networkInfo.isConnected()) {
-
-                        String logradouro, numero, bairro, cep, cidade;
-
-                    if(1 > 2) {
-
-                        //Trabalhar neste toast
-                        Toast.makeText(getApplicationContext(), "Nenhum campo pode estar vazio", Toast.LENGTH_LONG).show();
-
-                    } else {
-                        url = "http://192.168.1.99/apptools/sanetools/teste.php";
-                        //url = "http://172.24.152.185/apptools/sanetools/registrar.php";
-                        //url = "http://192.168.43.217/apptools/sanetools/registrar.php";
-
-                        //parametros = "logradouro=" + logradouro + "&numero=" + numero;
-
-                        new SolicitaDados().execute(url);
-                    }
-
-                } else {
-                    Toast.makeText(getApplicationContext(), "Nenhuma conexão foi detectada", Toast.LENGTH_LONG).show();
-
-                }
+                Intent consultaImovel = new Intent(HomeCliente.this, ActivityEndereco.class);
+                startActivity(consultaImovel);
             }
+
         });
+
     }
 
-    private class SolicitaDados extends AsyncTask<String, Void, String> {
-        @Override
-        protected String doInBackground(String... urls) {
-
-            return Conexao.postDados(urls[0], parametros);
-        }
-
-        // onPostExecute displays the results of the AsyncTask.
-        @Override
-        protected void onPostExecute(String resultado) {
-
-            if(resultado.contains("imovel_erro")) {
-                Toast.makeText(getApplicationContext(), "Nenhum imóvel cadastrado", Toast.LENGTH_LONG).show();
-
-            }else if(resultado.contains("imovel_ok")) {
-                Intent listaImovel = new Intent(HomeCliente.this, ConsultaImovel.class);
-                startActivity(listaImovel);
-
-            } else {
-                Toast.makeText(getApplicationContext(), "Ocorreu um erro ao consultar", Toast.LENGTH_LONG).show();
-            }
-        }
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        finish();
-    }
 
     @Override
     public void onBackPressed() {

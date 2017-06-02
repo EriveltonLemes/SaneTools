@@ -15,9 +15,6 @@ import android.widget.Toast;
 
 
 import br.com.apptools.sanetools.database.Conexao;
-//import br.com.apptools.sanetools.database.DataBaseHelper;
-//import br.com.apptools.sanetools.dominio.RepositorioPessoa;
-//import br.com.apptools.sanetools.dominio.entidades.Pessoa;
 
 public class CadastraUsuario extends AppCompatActivity {
 
@@ -34,9 +31,6 @@ public class CadastraUsuario extends AppCompatActivity {
     EditText mEdtInserirTelefone;
     Button mBtnSalvarCad;
     Button mBtnCancelarCad;
-
-    //RepositorioPessoa repositorioPessoa;
-    //Pessoa pessoa;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -75,9 +69,11 @@ public class CadastraUsuario extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Nenhum campo pode estar vazio", Toast.LENGTH_LONG).show();
 
                     } else {
-                        //url = "http://192.168.1.99/apptools/sanetools/registrar.php";
-                        //url = "http://172.24.149.230/apptools/sanetools/registrar.php";
-                        url = "http://192.168.43.217/apptools/sanetools/registrar.php";
+                        //url = "http://192.168.1.99/apptools/sanetools/registrar.php"; //Casa
+                        //url = "http://172.24.149.230/apptools/sanetools/registrar.php"; //Unis
+                        //url= "http://localhost/apptools/sanetools/registrar.php"; //Local
+                        //url = "http://192.168.43.217/apptools/sanetools/registrar.php"; //Xperia
+                        url = "http://192.168.1.30/apptools/sanetools/registrar.php"; //Modem
 
                         parametros = "cpf_equipe=" + cpf + "&nome=" + nome + "&telefone" + telefone + "&email=" + email + "&senha=" + senha;
 

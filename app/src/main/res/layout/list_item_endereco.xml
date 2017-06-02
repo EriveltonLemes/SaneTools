@@ -11,43 +11,46 @@
         android:layout_weight="1" />
 
     <TextView
-        android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtLogradouro"
-        android:layout_alignRight="@+id/txtLogradouro"
-        android:layout_alignEnd="@+id/txtLogradouro"
-        android:layout_marginTop="59dp"
-        android:id="@+id/txtNumero" />
+        android:text=""
+        android:id="@+id/textView4" />
 
     <TextView
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/txtNumero"
+        android:layout_below="@+id/txtLogradouro"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtBairro"
         android:layout_below="@+id/txtNumero"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="81dp"
-        android:id="@+id/txtBairro" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/txtCep"
         android:layout_below="@+id/txtBairro"
-        android:layout_alignRight="@+id/txtBairro"
-        android:layout_alignEnd="@+id/txtBairro"
-        android:layout_marginTop="76dp"
-        android:id="@+id/txtCep" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/txtCep"
-        android:layout_alignEnd="@+id/txtCep"
-        android:layout_marginBottom="91dp"
-        android:id="@+id/txtCidade" />
+        android:id="@+id/txtCidade"
+        android:layout_below="@+id/txtCep"
+        android:layout_toRightOf="@+id/textView4"
+        android:layout_toEndOf="@+id/textView4"
+        android:layout_marginTop="117dp" />
 
 </RelativeLayout>

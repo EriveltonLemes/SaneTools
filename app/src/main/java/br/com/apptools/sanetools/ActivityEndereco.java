@@ -16,7 +16,6 @@ import java.util.List;
 
 public class ActivityEndereco extends AppCompatActivity implements LoadEnderecoJson.Listener, AdapterView.OnItemClickListener{
 
-
     private static final String KEY_LOGRADOURO = "logradouro";
     private static final String KEY_NUMERO = "numero";
     private static final String KEY_BAIRRO = "bairro";
@@ -25,23 +24,23 @@ public class ActivityEndereco extends AppCompatActivity implements LoadEnderecoJ
 
 
     //public static final String URL = "http://172.24.149.230/apptools/sanetools/imoveis.php"; //unis
-    public static final String URL = "http://192.168.43.217/apptools/sanetools/imoveis.php"; //Xperia
+    //public static final String URL = "http://192.168.43.217/apptools/sanetools/imoveis.php"; //Xperia
+    public static final String URL = "http://192.168.1.30/apptools/sanetools/imoveis.php"; //Modem 4G
+    //public static final String URL = "http://localhost/apptools/sanetools/imoveis.php"; //Local
     //public static final String URL = "http://172.24.149.230/apptools/sanetools/imoveis.php"; //Casa
 
     private static final String TAG = "ActivityEndereco";
-
     private List<HashMap<String, String>> mEnderecoMapList = new ArrayList<>();
 
-
-    ListView mLstvTesteBanco;
+    ListView mLstvEndereco;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teste_banco);
+        setContentView(R.layout.activity_endereco);
 
-        mLstvTesteBanco = (ListView) findViewById(R.id.lstvTesteBanco);
-        mLstvTesteBanco.setOnItemClickListener(this);
+        mLstvEndereco = (ListView) findViewById(R.id.lstvEndereco);
+        mLstvEndereco.setOnItemClickListener(this);
         new LoadEnderecoJson(this).execute(URL);
 
     }
@@ -73,7 +72,7 @@ public class ActivityEndereco extends AppCompatActivity implements LoadEnderecoJ
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
         Toast.makeText(this, mEnderecoMapList.get(i).get(KEY_LOGRADOURO),Toast.LENGTH_LONG).show();
-        /*TODO UM IDENTIFICADOR 'string' PARA CADA INTENT VINDO DA API (nÃ£o podemos usar o id numero atual)*/
+        /*TODO UM IDENTIFICADOR 'string' PARA CADA INTENT VINDO DA API (não podemos usar o id numero atual)*/
 
     }
 
@@ -81,10 +80,10 @@ public class ActivityEndereco extends AppCompatActivity implements LoadEnderecoJ
 
         ListAdapter adapterEndereco = new SimpleAdapter(ActivityEndereco.this, mEnderecoMapList, R.layout.list_item_endereco,
 
-                new String[]{KEY_LOGRADOURO, KEY_NUMERO},
-        new int[] {R.id.txtLogradouro, R.id.txtNumero});
+                new String[]{KEY_LOGRADOURO, KEY_NUMERO, KEY_BAIRRO, KEY_CEP, KEY_CIDADE},
+        new int[] {R.id.txtLogradouro, R.id.txtNumero, R.id.txtBairro, R.id.txtCep, R.id.txtCidade});
 
-        mLstvTesteBanco.setAdapter(adapterEndereco);
+        mLstvEndereco.setAdapter(adapterEndereco);
     }
 
 }
