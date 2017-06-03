@@ -158,7 +158,7 @@ public class HomeCliente extends AppCompatActivity
 
             //Abre a tela de consulta de imovel que já foram solicitados ordens de serviço
         } else if (id == R.id.menuConsultarImovel) {
-            Intent intent = new Intent(HomeCliente.this, ConsultaImovel.class);
+            Intent intent = new Intent(HomeCliente.this, ActivityImovel.class);
             startActivity(intent);
             finish();
 

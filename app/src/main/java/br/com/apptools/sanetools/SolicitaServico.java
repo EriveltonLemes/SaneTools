@@ -264,7 +264,7 @@ public class SolicitaServico extends AppCompatActivity
 
            //Abre a tela de consulta de imovel que já foram solicitados ordens de serviço
         } else if (id == R.id.menuConsultarImovel) {
-            Intent intent = new Intent(SolicitaServico.this, ConsultaImovel.class);
+            Intent intent = new Intent(SolicitaServico.this, ActivityImovel.class);
             startActivity(intent);
             finish();
 
