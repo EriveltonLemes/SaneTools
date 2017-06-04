@@ -13,9 +13,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
-/**
- * Created by Erivelton on 30/05/2017.
- */
+import br.com.apptools.sanetools.dominio.entidades.ImovelApp;
 
 public class LoadImovelJson extends AsyncTask<String, Void, ResponseImovel> {
 

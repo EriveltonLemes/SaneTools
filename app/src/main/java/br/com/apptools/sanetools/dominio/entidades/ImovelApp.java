@@ -1,4 +1,4 @@
-package br.com.apptools.sanetools;
+package br.com.apptools.sanetools.dominio.entidades;
 
 public class ImovelApp {
 

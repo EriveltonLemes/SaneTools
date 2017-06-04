@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import br.com.apptools.sanetools.dominio.entidades.ImovelApp;
+
 public class ActivityImovel extends AppCompatActivity implements LoadImovelJson.Listener, AdapterView.OnItemClickListener{
 
     private static final String KEY_LOGRADOURO = "logradouro";
