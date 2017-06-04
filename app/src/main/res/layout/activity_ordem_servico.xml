@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layout_weight="0.87"
-        android:id="@+id/lstvOS"
+        android:id="@+id/lstvOrdemServico"
         android:layout_marginTop="10dp">
     </ListView>
 

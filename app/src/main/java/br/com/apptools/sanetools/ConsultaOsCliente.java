@@ -29,7 +29,7 @@ public class ConsultaOsCliente extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consulta_os);
+        setContentView(R.layout.activity_ordem_servico);
 
         mBtnVoltarAcompOS = (Button) findViewById(R.id.btnVoltarAcompOS);
         mLstvOS = (ListView) findViewById(R.id.lstvOS);

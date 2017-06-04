@@ -28,5 +28,11 @@
     <string name="bairro"> Bairro: </string>
     <string name="cidade"> Cidade: </string>
     <string name="bemVindo">Bem Vindo, </string>
+    <string name="numOrdemServico">Numero da Ordem de Servico:</string>
+    <string name="tipoServico">Tipo do Serviço:</string>
+    <string name="dataGeracao">Data da Geração:</string>
+    <string name="dataBaixa">Data da Baixa:</string>
+    <string name="status">Status:</string>
+    <string name="idImovel">Matricula do Imovel:</string>
 
 </resources>
