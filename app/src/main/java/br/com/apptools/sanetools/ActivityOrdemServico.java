@@ -32,7 +32,7 @@ public class ActivityOrdemServico extends AppCompatActivity implements LoadOrdem
     //public static final String URL = "http://192.168.43.217/apptools/sanetools/consultaOS.php"; //Xperia
     //public static final String URL = "http://192.168.1.30/apptools/sanetools/consultaOS.php"; //Modem 4G
     //public static final String URL = "http://localhosl/apptools/sanetools/consultaOS.php"; //Local
-    public static final String URL = "http://192.168.1.99/apptools/sanetools/consultaOS.php"; //Casa
+    public static final String URL = "http://192.168.1.99/apptools/sanetools/consultaOrdemServico.php"; //Casa
 
     private static final String TAG = "ActivityOrdemServico";
     private List<HashMap<String, String>> mOrdemServicoMapList = new ArrayList<>();

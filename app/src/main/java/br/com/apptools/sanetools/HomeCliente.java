@@ -48,15 +48,15 @@ public class HomeCliente extends AppCompatActivity
         mImgBtnSolicitaServico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent solicitaServico = new Intent(HomeCliente.this, SolicitaServico.class);
-                startActivity(solicitaServico);
+
+
             }
         });
 
         mImgBtnConsultaServico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent consultaServico = new Intent(HomeCliente.this, ConsultaOsCliente.class);
+                Intent consultaServico = new Intent(HomeCliente.this, ActivityOrdemServico.class);
                 startActivity(consultaServico);
             }
         });
@@ -64,8 +64,7 @@ public class HomeCliente extends AppCompatActivity
         mImgBtnConsultaFatura.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent consultaFatura = new Intent(HomeCliente.this, ConsultaFatura.class);
-                startActivity(consultaFatura);
+
             }
         });
 
@@ -140,21 +139,15 @@ public class HomeCliente extends AppCompatActivity
 
         //Abre a tela de solicitar serviço
         if (id == R.id.menuSolicitaServico) {
-            Intent intent = new Intent(HomeCliente.this, SolicitaServico.class);
-            startActivity(intent);
-            finish();
+
 
             //Abre a tela de consulta de serviços já solicitados
         } else if (id == R.id.menuConsultarServico) {
-            Intent intent = new Intent(HomeCliente.this, ConsultaOsCliente.class);
-            startActivity(intent);
-            finish();
+
 
             //Abre a tela de consulta de activity_faturas
         } else if (id == R.id.menuConsultaFatura) {
-            Intent intent = new Intent(HomeCliente.this, ConsultaFatura.class);
-            startActivity(intent);
-            finish();
+
 
             //Abre a tela de consulta de imovel que já foram solicitados ordens de serviço
         } else if (id == R.id.menuConsultarImovel) {
