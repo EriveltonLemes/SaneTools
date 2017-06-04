@@ -1,4 +1,4 @@
-package br.com.apptools.sanetools;
+package br.com.apptools.sanetools.Activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import br.com.apptools.sanetools.LoadJson.LoadOrdemServicoJson;
+import br.com.apptools.sanetools.R;
 import br.com.apptools.sanetools.dominio.entidades.OrdemServicoApp;
 
 public class ActivityOrdemServico extends AppCompatActivity implements LoadOrdemServicoJson.Listener, AdapterView.OnItemClickListener{

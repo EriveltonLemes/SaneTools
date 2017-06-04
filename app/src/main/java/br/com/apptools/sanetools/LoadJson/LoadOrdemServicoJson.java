@@ -1,4 +1,4 @@
-package br.com.apptools.sanetools;
+package br.com.apptools.sanetools.LoadJson;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -13,6 +13,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
+import br.com.apptools.sanetools.Response.ResponseOrdemServico;
 import br.com.apptools.sanetools.dominio.entidades.OrdemServicoApp;
 
 public class LoadOrdemServicoJson extends AsyncTask<String, Void, ResponseOrdemServico> {

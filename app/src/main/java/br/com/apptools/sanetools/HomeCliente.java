@@ -13,6 +13,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
+import br.com.apptools.sanetools.Activity.ActivityImovel;
+import br.com.apptools.sanetools.Activity.ActivityOrdemServico;
+
 public class HomeCliente extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 

@@ -1,4 +1,4 @@
-package br.com.apptools.sanetools;
+package br.com.apptools.sanetools.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import br.com.apptools.sanetools.LoadJson.LoadImovelJson;
+import br.com.apptools.sanetools.R;
 import br.com.apptools.sanetools.dominio.entidades.ImovelApp;
 
 public class ActivityImovel extends AppCompatActivity implements LoadImovelJson.Listener, AdapterView.OnItemClickListener{

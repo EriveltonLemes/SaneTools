@@ -1,4 +1,4 @@
-package br.com.apptools.sanetools;
+package br.com.apptools.sanetools.Response;
 
 import java.util.ArrayList;
 import java.util.List;
