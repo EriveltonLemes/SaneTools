@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import br.com.apptools.sanetools.Activity.ActivityLogin;
+
 public class SplashScreen extends AppCompatActivity {
 
     @Override
@@ -20,7 +22,7 @@ public class SplashScreen extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
-                    Intent intent = new Intent(SplashScreen.this, Login.class);
+                    Intent intent = new Intent(SplashScreen.this, ActivityLogin.class);
                     startActivity(intent);
                 }
             }

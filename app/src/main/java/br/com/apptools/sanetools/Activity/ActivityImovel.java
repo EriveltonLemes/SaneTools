@@ -34,35 +34,35 @@ public class ActivityImovel extends AppCompatActivity implements LoadImovelJson.
     public static final String URL = "http://192.168.1.99/apptools/sanetools/imoveis.php"; //Casa
 
     private static final String TAG = "ActivityImovel";
-    private List<HashMap<String, String>> mEnderecoMapList = new ArrayList<>();
+    private List<HashMap<String, String>> mImovelMapList = new ArrayList<>();
 
-    ListView mLstvEndereco;
+    ListView mLstvImovel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_imovel);
 
-        mLstvEndereco = (ListView) findViewById(R.id.lstvEndereco);
-        mLstvEndereco.setOnItemClickListener(this);
+        mLstvImovel = (ListView) findViewById(R.id.lstvImovel);
+        mLstvImovel.setOnItemClickListener(this);
         new LoadImovelJson(this).execute(URL);
 
     }
 
     @Override
-    public void onLoaded(List<ImovelApp> enderecoList) {
-        Log.v(TAG, "EnderecoList:"+enderecoList);
-        for (ImovelApp endereco : enderecoList) {
+    public void onLoaded(List<ImovelApp> imovelList) {
+        Log.v(TAG, "EnderecoList:"+imovelList);
+        for (ImovelApp imovel : imovelList) {
 
             HashMap<String, String> map = new HashMap<>();
 
-            map.put(KEY_LOGRADOURO, endereco.getLogradouro());
-            map.put(KEY_NUMERO, endereco.getNumero());
-            map.put(KEY_BAIRRO, endereco.getBairro());
-            map.put(KEY_CEP, endereco.getCep());
-            map.put(KEY_CIDADE, endereco.getCidade());
+            map.put(KEY_LOGRADOURO, imovel.getLogradouro());
+            map.put(KEY_NUMERO, imovel.getNumero());
+            map.put(KEY_BAIRRO, imovel.getBairro());
+            map.put(KEY_CEP, imovel.getCep());
+            map.put(KEY_CIDADE, imovel.getCidade());
 
-            mEnderecoMapList.add(map);
+            mImovelMapList.add(map);
         }
         loadListView();
     }
@@ -75,19 +75,19 @@ public class ActivityImovel extends AppCompatActivity implements LoadImovelJson.
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-        Toast.makeText(this, mEnderecoMapList.get(i).get(KEY_LOGRADOURO),Toast.LENGTH_LONG).show();
+        Toast.makeText(this, mImovelMapList.get(i).get(KEY_LOGRADOURO),Toast.LENGTH_LONG).show();
         /*TODO UM IDENTIFICADOR 'string' PARA CADA INTENT VINDO DA API (não podemos usar o id numero atual)*/
 
     }
 
     private void loadListView() {
 
-        ListAdapter adapterEndereco = new SimpleAdapter(ActivityImovel.this, mEnderecoMapList, R.layout.list_item_imovel,
+        ListAdapter adapterImovel = new SimpleAdapter(ActivityImovel.this, mImovelMapList, R.layout.list_item_imovel,
 
                 new String[]{KEY_LOGRADOURO, KEY_NUMERO, KEY_BAIRRO, KEY_CEP, KEY_CIDADE},
         new int[] {R.id.txtLogradouro, R.id.txtNumero, R.id.txtBairro, R.id.txtCep, R.id.txtCidade});
 
-        mLstvEndereco.setAdapter(adapterEndereco);
+        mLstvImovel.setAdapter(adapterImovel);
     }
 
 }

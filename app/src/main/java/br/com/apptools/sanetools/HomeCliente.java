@@ -179,9 +179,7 @@ public class HomeCliente extends AppCompatActivity
 
             //Fecha a aplicação
         } else if (id == R.id.menuSair) {
-            Intent intent = new Intent(HomeCliente.this, Login.class);
-            startActivity(intent);
-            finish();
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

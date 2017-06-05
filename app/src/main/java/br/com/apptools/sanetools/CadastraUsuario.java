@@ -1,10 +1,6 @@
 package br.com.apptools.sanetools;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -14,13 +10,21 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-import br.com.apptools.sanetools.database.Conexao;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class CadastraUsuario extends AppCompatActivity {
-
-    //Teste de activity_login
-    String url = "";
-    String parametros = "";
 
     //Declaração de variaveis para recuperação de dados
     EditText mEdtInserirCPF;
@@ -31,6 +35,11 @@ public class CadastraUsuario extends AppCompatActivity {
     EditText mEdtInserirTelefone;
     Button mBtnSalvarCad;
     Button mBtnCancelarCad;
+
+
+    private RequestQueue requestQueue;
+    private static final String URL =  "http://192.168.1.99/apptools/sanetools/registrar2.php"; //Casa
+    private StringRequest request;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,44 +55,58 @@ public class CadastraUsuario extends AppCompatActivity {
         mBtnSalvarCad = (Button) findViewById(R.id.btnSalvarCad);
         mBtnCancelarCad = (Button) findViewById(R.id.btnCancelarCad);
 
-                mBtnSalvarCad.setOnClickListener(new View.OnClickListener() {
-            //Função do botão de gravar o activity_cadastro do usuário
+        requestQueue = Volley.newRequestQueue(this);
+
+
+        //Função do botão de gravar o activity_cadastro do usuário
+
+        mBtnSalvarCad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                ConnectivityManager connMgr = (ConnectivityManager)
-                        getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+                request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
 
-                if(networkInfo != null && networkInfo.isConnected()) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            if (jsonObject.names().get(0).equals("sucesso")) {
+                                Toast.makeText(getApplicationContext(),"Sucesso"+jsonObject.getString("sucesso"), Toast.LENGTH_SHORT).show();
 
-                    String cpf = mEdtInserirCPF.getText().toString();
-                    String nome = mEdtInserirNome.getText().toString();
-                    String email = mEdtInserirEmail.getText().toString();
-                    String senha = mEdtInserirSenha.getText().toString();
-                    String senha1 = mEdtInserirSenha1.getText().toString();
-                    String telefone = mEdtInserirTelefone.getText().toString();
+                                startActivity(new Intent(getApplicationContext(), HomeCliente.class));
+                                /*Intent logar = new Intent(CadastraUsuario.this, HomeCliente.class);
+                                startActivity(logar);
+                                finish();*/
 
-                    if (cpf.isEmpty() || nome.isEmpty() || email.isEmpty() || telefone.isEmpty() || senha.isEmpty() || senha1.isEmpty()) {
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Erro"+jsonObject.getString("erro"), Toast.LENGTH_SHORT).show();
+                            }
 
-                        Toast.makeText(getApplicationContext(), "Nenhum campo pode estar vazio", Toast.LENGTH_LONG).show();
-
-                    } else {
-
-                        url = "http://192.168.1.99/apptools/sanetools/registrar.php"; //Casa
-                        //url = "http://172.24.149.230/apptools/sanetools/registrar.php"; //Unis
-                        //url= "http://localhost/apptools/sanetools/registrar.php"; //Local
-                        //url = "http://192.168.43.217/apptools/sanetools/registrar.php"; //Xperia
-                        //url = "http://192.168.1.30/apptools/sanetools/registrar.php"; //Modem
-
-                        parametros = "cpf_equipe=" + cpf + "&nome=" + nome + "&telefone" + telefone + "&email=" + email + "&senha=" + senha;
-
-                        new SolicitaDados().execute(url);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
 
-                } else {
-                    Toast.makeText(getApplicationContext(), "Nenhuma conexão foi detectada", Toast.LENGTH_LONG).show();
-                }
+                    }
+                }) {
+
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        HashMap<String, String> hashMap = new HashMap<String, String>();
+                        hashMap.put("cpf_equipe", mEdtInserirCPF.getText().toString());
+                        hashMap.put("nome", mEdtInserirNome.getText().toString());
+                        hashMap.put("email", mEdtInserirEmail.getText().toString());
+                        hashMap.put("telefone", mEdtInserirTelefone.getText().toString());
+                        hashMap.put("senha", mEdtInserirSenha.getText().toString());
+
+                        return hashMap;
+                    }
+                };
+
+                requestQueue.add(request);
             }
         });
 
@@ -91,42 +114,8 @@ public class CadastraUsuario extends AppCompatActivity {
         mBtnCancelarCad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CadastraUsuario.this, Login.class);
-                startActivity(intent);
                 finish();
             }
         });
-
-    }
-
-    private class SolicitaDados extends AsyncTask<String, Void, String> {
-        @Override
-        protected String doInBackground(String... urls) {
-
-            return Conexao.postDados(urls[0], parametros);
-        }
-
-        // onPostExecute displays the results of the AsyncTask.
-        @Override
-        protected void onPostExecute(String resultado) {
-
-            if(resultado.contains("cpf_erro")) {
-                Toast.makeText(getApplicationContext(), "CPF já cadastrado", Toast.LENGTH_LONG).show();
-
-            }else if(resultado.contains("registroOK")) {
-            Toast.makeText(getApplicationContext(), "Usuário Cadstrado com sucesso", Toast.LENGTH_LONG).show();
-                Intent voltaCadastro = new Intent(CadastraUsuario.this, Login.class);
-                startActivity(voltaCadastro);
-
-            } else {
-                Toast.makeText(getApplicationContext(), "Ocorreu um erro ao registrar", Toast.LENGTH_LONG).show();
-            }
-        }
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        finish();
     }
 }

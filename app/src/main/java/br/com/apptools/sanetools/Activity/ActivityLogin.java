@@ -1,4 +1,4 @@
-package br.com.apptools.sanetools;
+package br.com.apptools.sanetools.Activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,9 +16,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import br.com.apptools.sanetools.CadastraUsuario;
+import br.com.apptools.sanetools.HomeCliente;
+import br.com.apptools.sanetools.R;
 import br.com.apptools.sanetools.database.Conexao;
 
-public class Login extends AppCompatActivity {
+public class ActivityLogin extends AppCompatActivity {
 
     //Declaração de variaveis para retorno de dados
     EditText mEdtCPF;
@@ -97,7 +100,7 @@ public class Login extends AppCompatActivity {
         mTxtCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login.this, CadastraUsuario.class);
+                Intent intent = new Intent(ActivityLogin.this, CadastraUsuario.class);
                 startActivity(intent);
             }
         });
@@ -116,7 +119,7 @@ public class Login extends AppCompatActivity {
 
             if(resultado.contains("login_ok")) {
 
-                Intent abreHome = new Intent(Login.this, HomeCliente.class);
+                Intent abreHome = new Intent(ActivityLogin.this, HomeCliente.class);
                 startActivity(abreHome);
 
             } else {
@@ -179,4 +182,5 @@ public class Login extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
