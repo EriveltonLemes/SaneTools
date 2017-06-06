@@ -4,26 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:text="Ordens de Serviço:"
-        android:id="@+id/txtOrdemServico" />
-
     <ListView
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_weight="0.87"
-        android:id="@+id/lstvOrdemServico"
-        android:layout_marginTop="10dp">
+        android:id="@+id/lstvOrdemServico">
     </ListView>
-
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:text="Voltar"
-        android:id="@+id/btnVoltarAcompOS"
-        android:layout_gravity="center"/>
 
 </LinearLayout>
