@@ -18,11 +18,10 @@
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
 
         <ListView
-            android:layout_height="fill_parent"
+            android:layout_height="416dp"
             android:layout_width="fill_parent"
-            android:id="@+id/lstvFaturas"
-            android:layout_marginTop="10dp"
-            android:layout_weight="7">
+            android:id="@+id/lstvFatura"
+            android:layout_marginTop="10dp">
 
         </ListView>
 

@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import br.com.apptools.sanetools.Activity.ActivityImovel;
+import br.com.apptools.sanetools.Activity.ActivityLogin;
 import br.com.apptools.sanetools.Activity.ActivityOrdemServico;
 
 public class HomeCliente extends AppCompatActivity
@@ -148,7 +149,7 @@ public class HomeCliente extends AppCompatActivity
         } else if (id == R.id.menuConsultarServico) {
 
 
-            //Abre a tela de consulta de activity_faturas
+            //Abre a tela de consulta de activity_fatura
         } else if (id == R.id.menuConsultaFatura) {
 
 
@@ -179,7 +180,9 @@ public class HomeCliente extends AppCompatActivity
 
             //Fecha a aplicação
         } else if (id == R.id.menuSair) {
-
+            Intent sair = new Intent(HomeCliente.this, ActivityLogin.class);
+            startActivity(sair);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

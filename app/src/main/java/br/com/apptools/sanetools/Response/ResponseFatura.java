@@ -3,13 +3,13 @@ package br.com.apptools.sanetools.Response;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.apptools.sanetools.dominio.entidades.ImovelApp;
+import br.com.apptools.sanetools.dominio.entidades.FaturaApp;
 
 public class ResponseFatura {
 
-    private List<ImovelApp> endereco = new ArrayList<ImovelApp>();
+    private List<FaturaApp> fatura = new ArrayList<FaturaApp>();
 
-    public List<ImovelApp> getMenu() {
-        return endereco;
+    public List<FaturaApp> getMenu() {
+        return fatura;
     }
 }

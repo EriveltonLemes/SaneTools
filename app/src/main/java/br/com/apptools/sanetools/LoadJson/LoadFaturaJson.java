@@ -13,12 +13,12 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
-import br.com.apptools.sanetools.Response.ResponseImovel;
-import br.com.apptools.sanetools.dominio.entidades.ImovelApp;
+import br.com.apptools.sanetools.Response.ResponseFatura;
+import br.com.apptools.sanetools.dominio.entidades.FaturaApp;
 
-public class LoadFaturaJson extends AsyncTask<String, Void, ResponseImovel> {
+public class LoadFaturaJson extends AsyncTask<String, Void, ResponseFatura> {
 
-    private static final String TAG = "LoadEnderecoJsonMenu";
+    private static final String TAG = "LoadFaturaJsonMenu";
 
     public LoadFaturaJson(Listener listener) {
 
@@ -27,7 +27,7 @@ public class LoadFaturaJson extends AsyncTask<String, Void, ResponseImovel> {
 
     public interface Listener {
 
-        void onLoaded(List<ImovelApp> androidList);
+        void onLoaded(List<FaturaApp> androidList);
 
         void onError();
     }
@@ -35,13 +35,13 @@ public class LoadFaturaJson extends AsyncTask<String, Void, ResponseImovel> {
     private Listener mListener;
 
     @Override
-    protected ResponseImovel doInBackground(String... strings) {
+    protected ResponseFatura doInBackground(String... strings) {
         try {
 
             String stringResponse = loadJSON(strings[0]);
             Gson gson = new Gson();
 
-            return gson.fromJson(stringResponse, ResponseImovel.class);
+            return gson.fromJson(stringResponse, ResponseFatura.class);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
@@ -52,7 +52,7 @@ public class LoadFaturaJson extends AsyncTask<String, Void, ResponseImovel> {
     }
 
     @Override
-    protected void onPostExecute(ResponseImovel responseMenu) {
+    protected void onPostExecute(ResponseFatura responseMenu) {
 
         if (responseMenu != null) {
 

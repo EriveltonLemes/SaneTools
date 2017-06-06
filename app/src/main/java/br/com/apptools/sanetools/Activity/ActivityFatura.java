@@ -14,61 +14,58 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import br.com.apptools.sanetools.LoadJson.LoadFaturaJson;
 import br.com.apptools.sanetools.LoadJson.LoadOrdemServicoJson;
 import br.com.apptools.sanetools.R;
+import br.com.apptools.sanetools.dominio.entidades.FaturaApp;
 import br.com.apptools.sanetools.dominio.entidades.OrdemServicoApp;
 
-public class ActivityFatura extends AppCompatActivity implements LoadOrdemServicoJson.Listener, AdapterView.OnItemClickListener{
+public class ActivityFatura extends AppCompatActivity implements LoadFaturaJson.Listener, AdapterView.OnItemClickListener{
 
-    private static final String KEY_ID_ORDEMSERVICO = "idOrdemServico";
+    private static final String KEY_ID_FATURA = "idFatura";
     private static final String KEY_ID_IMOVEL = "idImovel";
-    private static final String KEY_DATA_GERACAO = "dataGeracao";
-    private static final String KEY_DATA_BAIXA = "dataBaixa";
-    private static final String KEY_TIPO_SERVICO = "tipoServico";
-    private static final String KEY_LOGRADOURO = "logradouro";
-    private static final String KEY_NUMERO = "numero";
+    private static final String KEY_CPF_EQUIPE = "cpf_equipe";
+    private static final String KEY_VALOR = "valor";
+    private static final String KEY_MESREF = "mesRef";
     private static final String KEY_STATUS = "status";
 
+    public static final String URL = "http://172.24.152.169/apptools/sanetools/consultaFatura.php"; //unis
+    //public static final String URL = "http://192.168.43.217/apptools/sanetools/consultaFatura.php"; //Xperia
+    //public static final String URL = "http://192.168.1.30/apptools/sanetools/coconsultaFatura.php"; //Modem 4G
+    //public static final String URL = "http://localhosl/apptools/sanetools/consultaFatura.php"; //Local
+    //public static final String URL = "http://192.168.1.99/apptools/sanetools/consultaFatura.php"; //Casa
 
-    //public static final String URL = "http://172.24.149.230/apptools/sanetools/consultaOS.php"; //unis
-    //public static final String URL = "http://192.168.43.217/apptools/sanetools/consultaOS.php"; //Xperia
-    //public static final String URL = "http://192.168.1.30/apptools/sanetools/consultaOS.php"; //Modem 4G
-    //public static final String URL = "http://localhosl/apptools/sanetools/consultaOS.php"; //Local
-    public static final String URL = "http://192.168.1.99/apptools/sanetools/consultaOrdemServico.php"; //Casa
+    private static final String TAG = "ActivityFatura";
+    private List<HashMap<String, String>> mFaturaMapList = new ArrayList<>();
 
-    private static final String TAG = "ActivityOrdemServico";
-    private List<HashMap<String, String>> mOrdemServicoMapList = new ArrayList<>();
-
-    ListView mLstvOrdemServico;
+    ListView mLstvFatura;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ordem_servico);
+        setContentView(R.layout.activity_fatura);
 
-        mLstvOrdemServico = (ListView) findViewById(R.id.lstvOrdemServico);
-        mLstvOrdemServico.setOnItemClickListener(this);
-        new LoadOrdemServicoJson(this).execute(URL);
+        mLstvFatura = (ListView) findViewById(R.id.lstvFatura);
+        mLstvFatura.setOnItemClickListener(this);
+        new LoadFaturaJson(this).execute(URL);
 
     }
 
     @Override
-    public void onLoaded(List<OrdemServicoApp> ordemServicoList) {
-        Log.v(TAG, "OdemServicoList:"+ordemServicoList);
-        for (OrdemServicoApp ordemServico : ordemServicoList) {
+    public void onLoaded(List<FaturaApp> faturaList) {
+        Log.v(TAG, "FaturaList:"+faturaList);
+        for (FaturaApp fatura : faturaList) {
 
             HashMap<String, String> map = new HashMap<>();
 
-            map.put(KEY_ID_ORDEMSERVICO, ordemServico.getIdOrdemServico());
-            map.put(KEY_ID_IMOVEL, ordemServico.getIdImovel());
-            map.put(KEY_DATA_GERACAO, ordemServico.getDataGeracao());
-            map.put(KEY_DATA_BAIXA, ordemServico.getDataBaixa());
-            map.put(KEY_TIPO_SERVICO, ordemServico.getTipoServico());
-            map.put(KEY_LOGRADOURO, ordemServico.getLogradouro());
-            map.put(KEY_NUMERO, ordemServico.getNumero());
-            map.put(KEY_STATUS, ordemServico.getStatus());
+            map.put(KEY_ID_FATURA, fatura.getIdFatura());
+            map.put(KEY_ID_IMOVEL, fatura.getIdImovel());
+            map.put(KEY_CPF_EQUIPE, fatura.getCpf_equipe());
+            map.put(KEY_VALOR, fatura.getValor());
+            map.put(KEY_MESREF, fatura.getMesRef());
+            map.put(KEY_STATUS, fatura.getStatus());
 
-            mOrdemServicoMapList.add(map);
+            mFaturaMapList.add(map);
         }
         loadListView();
     }
@@ -81,21 +78,21 @@ public class ActivityFatura extends AppCompatActivity implements LoadOrdemServic
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-        Toast.makeText(this, mOrdemServicoMapList.get(i).get(KEY_ID_ORDEMSERVICO),Toast.LENGTH_LONG).show();
+        Toast.makeText(this, mFaturaMapList.get(i).get(KEY_ID_FATURA),Toast.LENGTH_LONG).show();
         /*TODO UM IDENTIFICADOR 'string' PARA CADA INTENT VINDO DA API (não podemos usar o id numero atual)*/
 
     }
 
     private void loadListView() {
 
-        ListAdapter adapterOrdemServico = new SimpleAdapter(ActivityFatura.this, mOrdemServicoMapList, R.layout.list_item_orden_servico,
+        ListAdapter adapterFatura = new SimpleAdapter(ActivityFatura.this, mFaturaMapList, R.layout.list_item_fatura,
 
-                new String[]{KEY_ID_ORDEMSERVICO, KEY_ID_IMOVEL, KEY_LOGRADOURO, KEY_NUMERO,
-                        KEY_DATA_GERACAO, KEY_DATA_BAIXA, KEY_STATUS},
+                new String[]{KEY_ID_FATURA, KEY_ID_IMOVEL, KEY_CPF_EQUIPE, KEY_MESREF,
+                        KEY_VALOR, KEY_STATUS},
         new int[] {R.id.txtIdOrdemServico, R.id.txtIdImovel, R.id.txtLogradouro, R.id.txtNumero, R.id.txtDataGeracao,
                     R.id.txtDataBaixa, R.id.txtStatus});
 
-        mLstvOrdemServico.setAdapter(adapterOrdemServico);
+        mLstvFatura.setAdapter(adapterFatura);
     }
 
 }
