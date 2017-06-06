@@ -45,6 +45,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activity.ActivityImovel"></activity>
         <activity android:name=".Activity.ActivityOrdemServico"></activity>
+        <activity android:name=".Activity.ActivityFatura"></activity>
     </application>
 
 </manifest>

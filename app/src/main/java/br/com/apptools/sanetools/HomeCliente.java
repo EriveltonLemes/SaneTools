@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
+import br.com.apptools.sanetools.Activity.ActivityFatura;
 import br.com.apptools.sanetools.Activity.ActivityImovel;
 import br.com.apptools.sanetools.Activity.ActivityLogin;
 import br.com.apptools.sanetools.Activity.ActivityOrdemServico;
@@ -68,7 +69,8 @@ public class HomeCliente extends AppCompatActivity
         mImgBtnConsultaFatura.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent consultaFatura = new Intent(HomeCliente.this, ActivityFatura.class);
+                startActivity(consultaFatura);
             }
         });
 

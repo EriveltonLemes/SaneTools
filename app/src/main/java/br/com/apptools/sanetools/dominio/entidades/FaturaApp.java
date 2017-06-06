@@ -4,7 +4,6 @@ public class FaturaApp {
 
     private String idFatura;
     private String idImovel;
-    private String cpf_equipe;
     private String valor;
     private String mesRef;
     private String status;
@@ -15,10 +14,6 @@ public class FaturaApp {
 
     public String getIdImovel() {
         return idImovel;
-    }
-
-    public String getCpf_equipe() {
-        return cpf_equipe;
     }
 
     public String getValor() {

@@ -30,11 +30,11 @@ public class ActivityOrdemServico extends AppCompatActivity implements LoadOrdem
     private static final String KEY_STATUS = "status";
 
 
-    public static final String URL = "http://172.24.152.169/apptools/sanetools/consultaOrdemServico.php"; //unis
+    //public static final String URL = "http://172.24.152.169/apptools/sanetools/consultaOrdemServico.php"; //unis
     //public static final String URL = "http://192.168.43.217/apptools/sanetools/consultaOrdemServico.php"; //Xperia
     //public static final String URL = "http://192.168.1.30/apptools/sanetools/consultaOrdemServico.php"; //Modem 4G
     //public static final String URL = "http://localhosl/apptools/sanetools/consultaOrdemServico.php"; //Local
-    //public static final String URL = "http://192.168.1.99/apptools/sanetools/consultaOrdemServico.php"; //Casa
+    public static final String URL = "http://192.168.1.99/apptools/sanetools/consultaOrdemServico.php"; //Casa
 
     private static final String TAG = "ActivityOrdemServico";
     private List<HashMap<String, String>> mOrdemServicoMapList = new ArrayList<>();
@@ -88,7 +88,7 @@ public class ActivityOrdemServico extends AppCompatActivity implements LoadOrdem
 
     private void loadListView() {
 
-        ListAdapter adapterOrdemServico = new SimpleAdapter(ActivityOrdemServico.this, mOrdemServicoMapList, R.layout.list_item_orden_servico,
+        ListAdapter adapterOrdemServico = new SimpleAdapter(ActivityOrdemServico.this, mOrdemServicoMapList, R.layout.list_item_ordem_servico,
 
                 new String[]{KEY_ID_ORDEMSERVICO, KEY_ID_IMOVEL, KEY_LOGRADOURO, KEY_NUMERO,
                         KEY_DATA_GERACAO, KEY_DATA_BAIXA, KEY_STATUS},
