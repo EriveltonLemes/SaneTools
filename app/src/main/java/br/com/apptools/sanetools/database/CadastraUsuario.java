@@ -1,4 +1,4 @@
-package br.com.apptools.sanetools;
+package br.com.apptools.sanetools.database;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,8 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-import br.com.apptools.sanetools.Activity.ActivityLogin;
-import br.com.apptools.sanetools.database.Conexao;
+import br.com.apptools.sanetools.R;
 
 public class CadastraUsuario extends AppCompatActivity {
 
@@ -77,7 +76,7 @@ public class CadastraUsuario extends AppCompatActivity {
                         //url = "http://192.168.43.217/apptools/sanetools/registrar.php"; //Xperia
                         //url = "http://192.168.1.30/apptools/sanetools/registrar.php"; //Modem
 
-                        parametros = "cpf_equipe=" + cpf + "&nome=" + nome + "&telefone" + telefone + "&email=" + email + "&senha=" + senha;
+                        parametros = "cpf_equipe=" + cpf + "&nome=" + nome + "&telefone=" + telefone + "&email=" + email + "&senha=" + senha;
 
                         new SolicitaDados().execute(url);
                     }

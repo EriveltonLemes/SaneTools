@@ -14,25 +14,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import br.com.apptools.sanetools.LoadJson.LoadFaturaJson;
 import br.com.apptools.sanetools.LoadJson.LoadOrdemServicoJson;
 import br.com.apptools.sanetools.R;
+import br.com.apptools.sanetools.dominio.entidades.FaturaApp;
 import br.com.apptools.sanetools.dominio.entidades.OrdemServicoApp;
 
 public class ActivityOrdemServico extends AppCompatActivity implements LoadOrdemServicoJson.Listener, AdapterView.OnItemClickListener{
 
     private static final String KEY_ID_ORDEMSERVICO = "idOrdemServico";
     private static final String KEY_ID_IMOVEL = "idImovel";
-    private static final String KEY_DATA_GERACAO = "dataGeracao";
-    private static final String KEY_DATA_BAIXA = "dataBaixa";
-    private static final String KEY_TIPO_SERVICO = "tipoServico";
-    private static final String KEY_LOGRADOURO = "logradouro";
-    private static final String KEY_NUMERO = "numero";
+    private static final String KEY_DATAGERACAO = "dataGeracao";
+    private static final String KEY_DATABAIXA = "dataBaixa";
+    private static final String KEY_TIPOSERVICO = "tipoServico";
     private static final String KEY_STATUS = "status";
-
 
     //public static final String URL = "http://172.24.152.169/apptools/sanetools/consultaOrdemServico.php"; //unis
     //public static final String URL = "http://192.168.43.217/apptools/sanetools/consultaOrdemServico.php"; //Xperia
-    //public static final String URL = "http://192.168.1.30/apptools/sanetools/consultaOrdemServico.php"; //Modem 4G
+    //public static final String URL = "http://192.168.1.30/apptools/sanetools/coconsultaOrdemServico.php"; //Modem 4G
     //public static final String URL = "http://localhosl/apptools/sanetools/consultaOrdemServico.php"; //Local
     public static final String URL = "http://192.168.1.99/apptools/sanetools/consultaOrdemServico.php"; //Casa
 
@@ -54,18 +53,16 @@ public class ActivityOrdemServico extends AppCompatActivity implements LoadOrdem
 
     @Override
     public void onLoaded(List<OrdemServicoApp> ordemServicoList) {
-        Log.v(TAG, "OdemServicoList:"+ordemServicoList);
+        Log.v(TAG, "OrdemServicoList:"+ordemServicoList);
         for (OrdemServicoApp ordemServico : ordemServicoList) {
 
             HashMap<String, String> map = new HashMap<>();
 
             map.put(KEY_ID_ORDEMSERVICO, ordemServico.getIdOrdemServico());
             map.put(KEY_ID_IMOVEL, ordemServico.getIdImovel());
-            map.put(KEY_DATA_GERACAO, ordemServico.getDataGeracao());
-            map.put(KEY_DATA_BAIXA, ordemServico.getDataBaixa());
-            map.put(KEY_TIPO_SERVICO, ordemServico.getTipoServico());
-            map.put(KEY_LOGRADOURO, ordemServico.getLogradouro());
-            map.put(KEY_NUMERO, ordemServico.getNumero());
+            map.put(KEY_DATAGERACAO, ordemServico.getDataGeracao());
+            map.put(KEY_DATABAIXA, ordemServico.getDataBaixa());
+            map.put(KEY_TIPOSERVICO, ordemServico.getTipoServico());
             map.put(KEY_STATUS, ordemServico.getStatus());
 
             mOrdemServicoMapList.add(map);
@@ -83,19 +80,15 @@ public class ActivityOrdemServico extends AppCompatActivity implements LoadOrdem
 
         Toast.makeText(this, mOrdemServicoMapList.get(i).get(KEY_ID_ORDEMSERVICO),Toast.LENGTH_LONG).show();
         /*TODO UM IDENTIFICADOR 'string' PARA CADA INTENT VINDO DA API (não podemos usar o id numero atual)*/
-
     }
 
     private void loadListView() {
 
         ListAdapter adapterOrdemServico = new SimpleAdapter(ActivityOrdemServico.this, mOrdemServicoMapList, R.layout.list_item_ordem_servico,
 
-                new String[]{KEY_ID_ORDEMSERVICO, KEY_ID_IMOVEL, KEY_LOGRADOURO, KEY_NUMERO,
-                        KEY_DATA_GERACAO, KEY_DATA_BAIXA, KEY_STATUS},
-        new int[] {R.id.txtIdOrdemServico, R.id.txtIdImovel, R.id.txtLogradouro, R.id.txtNumero, R.id.txtDataGeracao,
-                    R.id.txtDataBaixa, R.id.txtStatus});
+                new String[]{KEY_ID_ORDEMSERVICO, KEY_ID_IMOVEL, KEY_DATAGERACAO, KEY_DATABAIXA, KEY_TIPOSERVICO, KEY_STATUS},
+        new int[] {R.id.txtIdOrdemServico, R.id.txtIdImovel, R.id.txtDataGeracao, R.id.txtDataBaixa, R.id.txtTipoServico ,R.id.txtStatus});
 
         mLstvOrdemServico.setAdapter(adapterOrdemServico);
     }
-
 }

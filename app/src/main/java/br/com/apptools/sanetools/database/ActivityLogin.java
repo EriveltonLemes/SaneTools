@@ -1,4 +1,4 @@
-package br.com.apptools.sanetools.Activity;
+package br.com.apptools.sanetools.database;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,10 +16,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import br.com.apptools.sanetools.CadastraUsuario;
 import br.com.apptools.sanetools.HomeCliente;
 import br.com.apptools.sanetools.R;
-import br.com.apptools.sanetools.database.Conexao;
 
 public class ActivityLogin extends AppCompatActivity {
 
@@ -117,9 +115,12 @@ public class ActivityLogin extends AppCompatActivity {
         @Override
         protected void onPostExecute(String resultado) {
 
+            String cpf_equipe = mEdtCPF.getText().toString();
+
             if(resultado.contains("login_ok")) {
 
                 Intent abreHome = new Intent(ActivityLogin.this, HomeCliente.class);
+                abreHome.putExtra("cpf_equipe",cpf_equipe);
                 startActivity(abreHome);
 
             } else {

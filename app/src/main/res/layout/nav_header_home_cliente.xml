@@ -35,6 +35,12 @@
             android:id="@+id/txtNomeUsuario"
             android:textColor="#ffffff"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtNomeLogin"
+            android:textColor="#ffffff"/>
+
     </LinearLayout>
 
     <TextView

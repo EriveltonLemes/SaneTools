@@ -12,22 +12,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import br.com.apptools.sanetools.Activity.ActivityFatura;
 import br.com.apptools.sanetools.Activity.ActivityImovel;
-import br.com.apptools.sanetools.Activity.ActivityLogin;
 import br.com.apptools.sanetools.Activity.ActivityOrdemServico;
+import br.com.apptools.sanetools.database.ActivityLogin;
 
 public class HomeCliente extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-    String url = "";
-    String parametros = "";
 
     ImageButton mImgBtnSolicitaServico;
     ImageButton mImgBtnConsultaServico;
     ImageButton mImgBtnConsultaFatura;
     ImageButton mImgBtnConsultaImovel;
+
+    TextView mTxtNomeLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +49,8 @@ public class HomeCliente extends AppCompatActivity
         mImgBtnConsultaServico = (ImageButton) findViewById(R.id.imgbtnConsultaServico);
         mImgBtnConsultaFatura = (ImageButton) findViewById(R.id.imgbtnConsultaFatura);
         mImgBtnConsultaImovel = (ImageButton) findViewById(R.id.imgbtnConsultaImovel);
+
+        mTxtNomeLogin = (TextView) findViewById(R.id.txtNomeLogin);
 
         mImgBtnSolicitaServico.setOnClickListener(new View.OnClickListener() {
             @Override

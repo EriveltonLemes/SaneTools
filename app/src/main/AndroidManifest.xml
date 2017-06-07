@@ -25,7 +25,7 @@
 
 
         <activity
-            android:name=".Activity.ActivityLogin"
+            android:name=".database.ActivityLogin"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -34,7 +34,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".CadastraUsuario" />
+        <activity android:name=".database.CadastraUsuario" />
         <activity
             android:name=".HomeCliente"
             android:label="@string/title_activity_home_cliente"
@@ -44,7 +44,6 @@
             android:label="@string/title_activity_home_equipe"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activity.ActivityImovel"></activity>
-        <activity android:name=".Activity.ActivityOrdemServico"></activity>
         <activity android:name=".Activity.ActivityFatura"></activity>
     </application>
 
