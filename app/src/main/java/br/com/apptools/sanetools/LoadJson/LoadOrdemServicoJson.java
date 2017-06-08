@@ -84,7 +84,7 @@ public class LoadOrdemServicoJson extends AsyncTask<String, Void, ResponseOrdemS
             Log.v(TAG, line);
             response.append(line);
         }
-        Log.v(TAG, "response");
+        Log.v(TAG, "Response");
         Log.v(TAG, response.toString());
         in.close();
         return response.toString();

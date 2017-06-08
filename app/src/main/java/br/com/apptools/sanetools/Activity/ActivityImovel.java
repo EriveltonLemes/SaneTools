@@ -8,6 +8,8 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -29,9 +31,9 @@ public class ActivityImovel extends AppCompatActivity implements LoadImovelJson.
 
     //public static final String URL = "http://172.24.152.169/apptools/sanetools/imoveis.php"; //unis
     //public static final String URL = "http://192.168.43.217/apptools/sanetools/imoveis.php"; //Xperia
-    //public static final String URL = "http://192.168.1.30/apptools/sanetools/imoveis.php"; //Modem 4G
+    public static final String URL = "http://192.168.1.30/apptools/sanetools/imoveis.php"; //Modem 4G
     //public static final String URL = "http://localhosl/apptools/sanetools/imoveis.php"; //Local
-    public static final String URL = "http://192.168.1.99/apptools/sanetools/imoveis.php"; //Casa
+    //public static final String URL = "http://192.168.1.99/apptools/sanetools/imoveis.php"; //Casa
 
     private static final String TAG = "ActivityImovel";
     private List<HashMap<String, String>> mImovelMapList = new ArrayList<>();
@@ -82,12 +84,11 @@ public class ActivityImovel extends AppCompatActivity implements LoadImovelJson.
 
     private void loadListView() {
 
-        ListAdapter adapterImovel = new SimpleAdapter(ActivityImovel.this, mImovelMapList, R.layout.list_item_imovel,
+        SimpleAdapter adapterImovel = new SimpleAdapter(ActivityImovel.this, mImovelMapList, R.layout.list_item_imovel,
 
                 new String[]{KEY_LOGRADOURO, KEY_NUMERO, KEY_BAIRRO, KEY_CEP, KEY_CIDADE},
-        new int[] {R.id.txtLogradouro, R.id.txtNumero, R.id.txtBairro, R.id.txtCep, R.id.txtCidade});
+                new int[]{R.id.txtLogradouro, R.id.txtNumero, R.id.txtBairro, R.id.txtCep, R.id.txtCidade});
 
         mLstvImovel.setAdapter(adapterImovel);
     }
-
 }

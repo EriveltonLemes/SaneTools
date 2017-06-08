@@ -8,8 +8,6 @@ public class OrdemServicoApp {
     private String dataBaixa;
     private String tipoServico;
     private String status;
-    private String logradouro;
-    private String numero;
 
     public String getIdOrdemServico() {
         return idOrdemServico;
@@ -33,13 +31,5 @@ public class OrdemServicoApp {
 
     public String getStatus() {
         return status;
-    }
-
-    public String getLogradouro() {
-        return logradouro;
-    }
-
-    public String getNumero() {
-        return numero;
     }
 }

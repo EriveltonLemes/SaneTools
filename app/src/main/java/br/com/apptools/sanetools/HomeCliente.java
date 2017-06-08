@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import br.com.apptools.sanetools.Activity.ActivityFatura;
+import br.com.apptools.sanetools.Activity.ActivityGeraOS;
 import br.com.apptools.sanetools.Activity.ActivityImovel;
 import br.com.apptools.sanetools.Activity.ActivityOrdemServico;
 import br.com.apptools.sanetools.database.ActivityLogin;
@@ -55,8 +56,8 @@ public class HomeCliente extends AppCompatActivity
         mImgBtnSolicitaServico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
+                Intent GeraOS = new Intent(HomeCliente.this, ActivityGeraOS.class);
+                startActivity(GeraOS);
             }
         });
 

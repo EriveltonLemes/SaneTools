@@ -14,10 +14,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import br.com.apptools.sanetools.LoadJson.LoadFaturaJson;
 import br.com.apptools.sanetools.LoadJson.LoadOrdemServicoJson;
 import br.com.apptools.sanetools.R;
-import br.com.apptools.sanetools.dominio.entidades.FaturaApp;
 import br.com.apptools.sanetools.dominio.entidades.OrdemServicoApp;
 
 public class ActivityOrdemServico extends AppCompatActivity implements LoadOrdemServicoJson.Listener, AdapterView.OnItemClickListener{
@@ -29,11 +27,11 @@ public class ActivityOrdemServico extends AppCompatActivity implements LoadOrdem
     private static final String KEY_TIPOSERVICO = "tipoServico";
     private static final String KEY_STATUS = "status";
 
-    //public static final String URL = "http://172.24.152.169/apptools/sanetools/consultaOrdemServico.php"; //unis
-    //public static final String URL = "http://192.168.43.217/apptools/sanetools/consultaOrdemServico.php"; //Xperia
-    //public static final String URL = "http://192.168.1.30/apptools/sanetools/coconsultaOrdemServico.php"; //Modem 4G
-    //public static final String URL = "http://localhosl/apptools/sanetools/consultaOrdemServico.php"; //Local
-    public static final String URL = "http://192.168.1.99/apptools/sanetools/consultaOrdemServico.php"; //Casa
+    //public static final String URL = "http://172.24.152.169/apptools/sanetools/consultaOS.php"; //unis
+    //public static final String URL = "http://192.168.43.217/apptools/sanetools/consultaOS.php"; //Xperia
+    public static final String URL = "http://192.168.1.30/apptools/sanetools/consultaOS.php"; //Modem 4G
+    //public static final String URL = "http://localhosl/apptools/sanetools/consultaOS.php"; //Local
+    //public static final String URL = "http://192.168.1.99/apptools/sanetools/consultaOS.php"; //Casa
 
     private static final String TAG = "ActivityOrdemServico";
     private List<HashMap<String, String>> mOrdemServicoMapList = new ArrayList<>();
@@ -53,7 +51,7 @@ public class ActivityOrdemServico extends AppCompatActivity implements LoadOrdem
 
     @Override
     public void onLoaded(List<OrdemServicoApp> ordemServicoList) {
-        Log.v(TAG, "OrdemServicoList:"+ordemServicoList);
+        Log.v(TAG, "OrdemServicoList:" + ordemServicoList);
         for (OrdemServicoApp ordemServico : ordemServicoList) {
 
             HashMap<String, String> map = new HashMap<>();
