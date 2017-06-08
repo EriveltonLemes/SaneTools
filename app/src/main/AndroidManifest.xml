@@ -46,7 +46,7 @@
         <activity android:name=".Activity.ActivityImovel"></activity>
         <activity android:name=".Activity.ActivityFatura"></activity>
         <activity android:name=".Activity.ActivityOrdemServico"></activity>
-        //<activity android:name="."></activity>
+        <activity android:name=".SolicitaOS"></activity>
     </application>
 
 </manifest>
