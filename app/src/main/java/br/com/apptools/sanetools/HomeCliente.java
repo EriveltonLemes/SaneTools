@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import br.com.apptools.sanetools.Activity.ActivityFatura;
 import br.com.apptools.sanetools.Activity.ActivityImovel;
+import br.com.apptools.sanetools.Activity.ActivityOrdemServico;
 import br.com.apptools.sanetools.Activity.ActivitySelecionaImovelOS;
 
 public class HomeCliente extends AppCompatActivity
@@ -60,7 +61,8 @@ public class HomeCliente extends AppCompatActivity
             @Override
             public void onClick(View v) {
 
-
+                Intent consultaOrdensServico = new Intent(HomeCliente.this, ActivityOrdemServico.class);
+                startActivity(consultaOrdensServico);
             }
         });
 
