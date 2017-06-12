@@ -28,9 +28,9 @@ public class ActivityFatura extends AppCompatActivity implements LoadFaturaJson.
 
     //public static final String URL = "http://172.24.152.169/apptools/sanetools/consultaFatura.php"; //unis
     //public static final String URL = "http://192.168.43.217/apptools/sanetools/consultaFatura.php"; //Xperia
-    public static final String URL = "http://192.168.1.30/apptools/sanetools/consultaFatura.php"; //Modem 4G
+    //public static final String URL = "http://192.168.1.30/apptools/sanetools/consultaFatura.php"; //Modem 4G
     //public static final String URL = "http://localhosl/apptools/sanetools/consultaFatura.php"; //Local
-    //public static final String URL = "http://192.168.1.99/apptools/sanetools/consultaFatura.php"; //Casa
+    public static final String URL = "http://192.168.1.99/apptools/sanetools/consultaFatura.php"; //Casa
 
     private static final String TAG = "ActivityFatura";
     private List<HashMap<String, String>> mFaturaMapList = new ArrayList<>();
@@ -68,7 +68,7 @@ public class ActivityFatura extends AppCompatActivity implements LoadFaturaJson.
 
     @Override
     public void onError() {
-        Toast.makeText(this, "Ops, verifique sua conexão!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Erro ao listar as faturas", Toast.LENGTH_SHORT).show();
     }
 
     @Override

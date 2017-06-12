@@ -1,5 +1,6 @@
 package br.com.apptools.sanetools.LoadJson;
 
+import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -16,7 +17,7 @@ import java.util.List;
 import br.com.apptools.sanetools.Response.ResponseOrdemServico;
 import br.com.apptools.sanetools.dominio.entidades.OrdemServicoApp;
 
-public class LoadOrdemServicoJson extends AsyncTask<String, Void, ResponseOrdemServico> {
+public class LoadOrdemServicoJson extends AsyncTask <String, Void, ResponseOrdemServico> {
 
     private static final String TAG = "LoadOrdemServicoJsonMenu";
 
@@ -64,6 +65,7 @@ public class LoadOrdemServicoJson extends AsyncTask<String, Void, ResponseOrdemS
         }
     }
 
+    @SuppressLint("LongLogTag")
     private String loadJSON(String jsonURL) throws IOException {
 
         URL url = new URL(jsonURL);
@@ -84,7 +86,7 @@ public class LoadOrdemServicoJson extends AsyncTask<String, Void, ResponseOrdemS
             Log.v(TAG, line);
             response.append(line);
         }
-        Log.v(TAG, "Response");
+        Log.v(TAG, "response");
         Log.v(TAG, response.toString());
         in.close();
         return response.toString();

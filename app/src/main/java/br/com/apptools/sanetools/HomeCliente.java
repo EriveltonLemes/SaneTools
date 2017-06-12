@@ -15,10 +15,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import br.com.apptools.sanetools.Activity.ActivityFatura;
-import br.com.apptools.sanetools.Activity.ActivityGeraOS;
 import br.com.apptools.sanetools.Activity.ActivityImovel;
-import br.com.apptools.sanetools.Activity.ActivityOrdemServico;
-import br.com.apptools.sanetools.database.ActivityLogin;
+import br.com.apptools.sanetools.Activity.ActivitySelecionaImovelOS;
 
 public class HomeCliente extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -27,8 +25,6 @@ public class HomeCliente extends AppCompatActivity
     ImageButton mImgBtnConsultaServico;
     ImageButton mImgBtnConsultaFatura;
     ImageButton mImgBtnConsultaImovel;
-
-    TextView mTxtNomeLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,21 +47,20 @@ public class HomeCliente extends AppCompatActivity
         mImgBtnConsultaFatura = (ImageButton) findViewById(R.id.imgbtnConsultaFatura);
         mImgBtnConsultaImovel = (ImageButton) findViewById(R.id.imgbtnConsultaImovel);
 
-        mTxtNomeLogin = (TextView) findViewById(R.id.txtNomeLogin);
-
         mImgBtnSolicitaServico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent GeraOS = new Intent(HomeCliente.this, ActivityGeraOS.class);
-                startActivity(GeraOS);
+
+                Intent solicitaServico = new Intent(HomeCliente.this, ActivitySelecionaImovelOS.class);
+                startActivity(solicitaServico);
             }
         });
 
         mImgBtnConsultaServico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent consultaServico = new Intent(HomeCliente.this, ActivityOrdemServico.class);
-                startActivity(consultaServico);
+
+
             }
         });
 

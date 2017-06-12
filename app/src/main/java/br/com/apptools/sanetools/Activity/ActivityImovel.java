@@ -31,9 +31,9 @@ public class ActivityImovel extends AppCompatActivity implements LoadImovelJson.
 
     //public static final String URL = "http://172.24.152.169/apptools/sanetools/imoveis.php"; //unis
     //public static final String URL = "http://192.168.43.217/apptools/sanetools/imoveis.php"; //Xperia
-    public static final String URL = "http://192.168.1.30/apptools/sanetools/imoveis.php"; //Modem 4G
-    //public static final String URL = "http://localhosl/apptools/sanetools/imoveis.php"; //Local
-    //public static final String URL = "http://192.168.1.99/apptools/sanetools/imoveis.php"; //Casa
+    //public static final String URL = "http://192.168.1.30/apptools/sanetools/imoveis.php"; //Modem 4G
+    //public static final String URL = "http://localhost/apptools/sanetools/imoveis.php"; //Local
+    public static final String URL = "http://192.168.1.99/apptools/sanetools/imoveis.php"; //Casa
 
     private static final String TAG = "ActivityImovel";
     private List<HashMap<String, String>> mImovelMapList = new ArrayList<>();
@@ -71,7 +71,7 @@ public class ActivityImovel extends AppCompatActivity implements LoadImovelJson.
 
     @Override
     public void onError() {
-        Toast.makeText(this, "Ops, verifique sua conexão!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Erro ao listar os imoveis", Toast.LENGTH_SHORT).show();
     }
 
     @Override

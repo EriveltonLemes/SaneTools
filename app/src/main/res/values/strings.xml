@@ -38,5 +38,7 @@
     <string name="fatura">N°. da fatura:</string>
     <string name="mesRef">Mês Referência:</string>
     <string name="valor">Valor: R$</string>
+    <string name="title_activity_cadastrar_cliente">Cadastrar Usuário</string>
+    <string name="observacao">Observação:</string>
 
 </resources>
