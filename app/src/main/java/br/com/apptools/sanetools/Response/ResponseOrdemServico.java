@@ -7,9 +7,9 @@ import br.com.apptools.sanetools.dominio.entidades.OrdemServicoApp;
 
 public class ResponseOrdemServico {
 
-    private List<OrdemServicoApp> ordemServico = new ArrayList<OrdemServicoApp>();
+    private List<OrdemServicoApp> ordem_servico = new ArrayList<OrdemServicoApp>();
 
     public List<OrdemServicoApp> getMenu() {
-        return ordemServico;
+        return ordem_servico;
     }
 }

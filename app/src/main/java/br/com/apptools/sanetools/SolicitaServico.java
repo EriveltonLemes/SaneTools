@@ -16,6 +16,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 public class SolicitaServico extends AppCompatActivity{
 
     String url = "";
@@ -35,8 +37,10 @@ public class SolicitaServico extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_solicita_servico);
 
+        HashMap<String, String> imovelSelecionado = (HashMap<String, String>) getIntent().getSerializableExtra("imovelSelecionado");
+
         mtxtLogradouroSel = (TextView) findViewById(R.id.txtLogradouroSel);
-        mtxtLogradouroSel.setText(getIntent().getStringExtra("logradouro"));
+        mtxtLogradouroSel.setText(imovelSelecionado.get("logradouro"));
 
         mBtnGravarOS = (Button) findViewById(R.id.btnGravarOS);
         mBtnCancelarOS = (Button) findViewById(R.id.btnCancelarOS);

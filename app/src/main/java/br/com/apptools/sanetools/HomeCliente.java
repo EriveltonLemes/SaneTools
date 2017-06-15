@@ -22,6 +22,11 @@ import br.com.apptools.sanetools.Activity.ActivitySelecionaImovelOS;
 public class HomeCliente extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    String cpfGlobal;
+    String nomeGlobal;
+
+    TextView mTxtNomeLogin, mTxtCpfLogin;
+
     ImageButton mImgBtnSolicitaServico;
     ImageButton mImgBtnConsultaServico;
     ImageButton mImgBtnConsultaFatura;
@@ -48,6 +53,13 @@ public class HomeCliente extends AppCompatActivity
         mImgBtnConsultaFatura = (ImageButton) findViewById(R.id.imgbtnConsultaFatura);
         mImgBtnConsultaImovel = (ImageButton) findViewById(R.id.imgbtnConsultaImovel);
 
+        mTxtNomeLogin = (TextView) findViewById(R.id.txtNomeLogin);
+        mTxtCpfLogin = (TextView) findViewById(R.id.txtCpfLogin);
+
+         cpfGlobal =  getIntent().getStringExtra("cpfLogin");
+        //mTxtNomeLogin.setText(getIntent().getStringExtra("nomeLogin"));
+
+
         mImgBtnSolicitaServico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +82,7 @@ public class HomeCliente extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent consultaFatura = new Intent(HomeCliente.this, ActivityFatura.class);
+
                 startActivity(consultaFatura);
             }
         });
@@ -78,6 +91,9 @@ public class HomeCliente extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent consultaImovel = new Intent(HomeCliente.this, ActivityImovel.class);
+
+                consultaImovel.putExtra("cpf", cpfGlobal);
+
                 startActivity(consultaImovel);
             }
 

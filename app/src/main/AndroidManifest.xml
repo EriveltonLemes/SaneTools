@@ -48,6 +48,8 @@
         <activity android:name=".SolicitaServico"></activity>
         <activity android:name=".Activity.ActivitySelecionaImovelOS"></activity>
         <activity android:name=".CadastraUsuario"></activity>
+        <activity android:name=".Activity.ActivityOrdemServico"></activity>
+
     </application>
 
 </manifest>

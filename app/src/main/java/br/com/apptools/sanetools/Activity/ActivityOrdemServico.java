@@ -31,7 +31,7 @@ public class ActivityOrdemServico extends AppCompatActivity implements LoadOrdem
     private static final String KEY_STATUS = "status";
     private static final String KEY_OBSERVACAO = "observacao";
 
-    public static final String URL = "http://192.168.1.99/apptools/sanetools/consultaOS.php"; //Casa
+    public static final String URL = "http://172.24.149.230/apptools/sanetools/consultaOS.php"; //Casa
 
     private static final String TAG = "ActivityOrdemServico";
     private List<HashMap<String, String>> mOrdemServicoMapList = new ArrayList<>();
@@ -80,7 +80,7 @@ public class ActivityOrdemServico extends AppCompatActivity implements LoadOrdem
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-        Toast.makeText(this, mOrdemServicoMapList.get(i).get(KEY_LOGRADOURO),Toast.LENGTH_LONG).show();
+        Toast.makeText(this, mOrdemServicoMapList.get(i).get(KEY_ID_ORDEMSERVICO),Toast.LENGTH_LONG).show();
 
         /*TODO UM IDENTIFICADOR 'string' PARA CADA INTENT VINDO DA API (não podemos usar o id numero atual)*/
     }

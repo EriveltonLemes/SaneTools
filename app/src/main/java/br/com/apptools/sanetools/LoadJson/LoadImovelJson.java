@@ -38,7 +38,7 @@ public class LoadImovelJson extends AsyncTask<String, Void, ResponseImovel> {
     protected ResponseImovel doInBackground(String... strings) {
         try {
 
-            String stringResponse = loadJSON(strings[0]);
+            String stringResponse = loadJSON(strings[0], strings[1]);
             Gson gson = new Gson();
 
             return gson.fromJson(stringResponse, ResponseImovel.class);
@@ -64,13 +64,13 @@ public class LoadImovelJson extends AsyncTask<String, Void, ResponseImovel> {
         }
     }
 
-    private String loadJSON(String jsonURL) throws IOException {
+    private String loadJSON(String jsonURL, String cpfLogin) throws IOException {
 
         URL url = new URL(jsonURL);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setReadTimeout(10000);
         conn.setConnectTimeout(15000);
-        conn.setRequestMethod("GET");
+        conn.setRequestMethod("POST");
         conn.setDoInput(true);
         conn.connect();
 
